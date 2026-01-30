@@ -18,7 +18,8 @@
       "includePath": [
         "${workspaceFolder}/**",
         "${workspaceFolder}/include",
-        "${workspaceFolder}/vendor"
+        "${workspaceFolder}/vendor",
+        "${VULKAN_SDK}/Include"
       ],
       "defines": [
         "_DEBUG",

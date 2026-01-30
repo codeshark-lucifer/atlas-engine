@@ -629,6 +629,25 @@ SDL_X11:BOOL=OFF
 //Use Xinput for Windows
 SDL_XINPUT:BOOL=ON
 
+//Add interface library only
+VOLK_HEADERS_ONLY:BOOL=OFF
+
+//Create installation targets
+VOLK_INSTALL:BOOL=OFF
+
+//Use C++ namespace for vk* functions
+VOLK_NAMESPACE:BOOL=OFF
+
+//Vulkan as a transitive dependency
+VOLK_PULL_IN_VULKAN:BOOL=ON
+
+//Additional defines for building the volk static library, e.g.
+// Vulkan platform defines
+VOLK_STATIC_DEFINES:STRING=
+
+//Where to get the Vulkan headers
+VULKAN_HEADERS_INSTALL_DIR:PATH=
+
 //Path to a program.
 Vulkan_GLSLANG_VALIDATOR_EXECUTABLE:FILEPATH=D:/VulkanSDK/1.4.328.1/Bin/glslangValidator.exe
 
@@ -640,6 +659,15 @@ Vulkan_INCLUDE_DIR:PATH=D:/VulkanSDK/1.4.328.1/include
 
 //Path to a library.
 Vulkan_LIBRARY:FILEPATH=D:/VulkanSDK/1.4.328.1/Lib/vulkan-1.lib
+
+//Value Computed by CMake
+volk_BINARY_DIR:STATIC=D:/Programing Education/atlas - engine/build/vendor/volk
+
+//Value Computed by CMake
+volk_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+volk_SOURCE_DIR:STATIC=D:/Programing Education/atlas - engine/vendor/volk
 
 
 ########################
@@ -782,7 +810,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
