@@ -19,20 +19,20 @@ set(SDL_TEST OFF CACHE BOOL "" FORCE)
 set(SDL_EXAMPLES OFF CACHE BOOL "" FORCE)
 set(SDL_INSTALL OFF CACHE BOOL "" FORCE)
 
-add_subdirectory(external/SDL)
+add_subdirectory(vendor/SDL)
 
 find_package(Vulkan REQUIRED)
 
 set(IMGUI_SRC
-    external/imgui/imgui.cpp
-    external/imgui/imgui_draw.cpp
-    external/imgui/imgui_tables.cpp
-    external/imgui/imgui_widgets.cpp
+    vendor/imgui/imgui.cpp
+    vendor/imgui/imgui_draw.cpp
+    vendor/imgui/imgui_tables.cpp
+    vendor/imgui/imgui_widgets.cpp
 )
 
 set(IMGUI_BACKENDS
-    external/imgui/backends/imgui_impl_sdl3.cpp
-    external/imgui/backends/imgui_impl_opengl3.cpp
+    vendor/imgui/backends/imgui_impl_sdl3.cpp
+    vendor/imgui/backends/imgui_impl_opengl3.cpp
 )
 
 file(GLOB_RECURSE ENGINE_SRC
@@ -58,8 +58,8 @@ target_link_libraries(engine PRIVATE
 
 target_include_directories(engine PRIVATE
     ${CMAKE_SOURCE_DIR}/include
-    external/imgui
-    external/imgui/backends
+    vendor/imgui
+    vendor/imgui/backends
     ${Vulkan_INCLUDE_DIRS}
 )
 
