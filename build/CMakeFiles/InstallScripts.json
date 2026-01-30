@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"D:/Programing Education/atlas - engine/build/cmake_install.cmake",
+		"D:/Programing Education/atlas - engine/build/external/SDL/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
