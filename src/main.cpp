@@ -1,8 +1,9 @@
-#include <vulkan/vulkan.h>
 #include <SDL3/SDL.h>
+#include <SDL3/SDL_vulkan.h>
+#include <vulkan/vulkan.h>
 #include <iostream>
 
-const char* WINDOW_NAME = "atlas - engine";
+const char *WINDOW_NAME = "atlas - engine";
 const int WINDOW_WIDTH = 956;
 const int WINDOW_HEIGHT = 540;
 
@@ -12,13 +13,17 @@ bool running = true;
 int main()
 {
     if (!SDL_Init(SDL_INIT_VIDEO))
-        SDL_Quit();
+    {
+        std::cerr << "Failed to initialize SDL3.\n";
+        return EXIT_FAILURE;
+    }
 
     SDL_WindowFlags flags = SDL_WINDOW_RESIZABLE;
 
     window = SDL_CreateWindow(
         WINDOW_NAME, WINDOW_WIDTH, WINDOW_HEIGHT,
         flags);
+    SDL_assert(window);
 
     if (!window)
     {
@@ -31,13 +36,19 @@ int main()
     {
         while (SDL_PollEvent(&event))
         {
-            if (event.type == SDL_EVENT_QUIT)
+            switch (event.type)
+            {
+            case SDL_EVENT_QUIT:
                 running = false;
+                break;
+            default:
+                break;
+            }
         }
     }
 
     SDL_DestroyWindow(window);
     SDL_Quit();
 
-    return 0;
+    return EXIT_SUCCESS;
 }

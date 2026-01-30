@@ -1,13 +1,15 @@
 cmake_minimum_required(VERSION 3.26)
+project(AtlasEngine VERSION 0.1.0 LANGUAGES C CXX)
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(OUTPUT_FILE engine)
-project(${OUTPUT_FILE} VERSION 0.1.0 LANGUAGES C CXX)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
-set(CMAKE_CXX_SCAN_FOR_MODULES OFF)
+set_target_properties((${OUTPUT_FILE} PROPERTIES
+         CXX_STANDARD 20
+         CXX_STANDARD_REQUIRED on
+         CXX_EXTENSIONS off
+         CXX_SCAN_FOR_MODULES off
+    ))
 
 if(MINGW)
     add_compile_options(-static -static-libgcc -static-libstdc++)
