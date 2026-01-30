@@ -345,13 +345,13 @@ PKG_CONFIG_ARGN:STRING=
 PKG_CONFIG_EXECUTABLE:FILEPATH=C:/msys64/mingw64/bin/pkg-config.exe
 
 //Value Computed by CMake
-SDL3_BINARY_DIR:STATIC=D:/Programing Education/atlas - engine/build/external/SDL
+SDL3_BINARY_DIR:STATIC=D:/Programing Education/atlas - engine/build/vendor/SDL
 
 //Value Computed by CMake
 SDL3_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-SDL3_SOURCE_DIR:STATIC=D:/Programing Education/atlas - engine/external/SDL
+SDL3_SOURCE_DIR:STATIC=D:/Programing Education/atlas - engine/vendor/SDL
 
 //Support the ALSA audio API
 SDL_ALSA:BOOL=OFF

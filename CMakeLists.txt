@@ -1,5 +1,7 @@
-cmake_minimum_required(VERSION 4.2.1)
-project(AtlasEngine LANGUAGES C CXX)
+cmake_minimum_required(VERSION 3.26)
+
+set(OUTPUT_FILE engine)
+project(${OUTPUT_FILE} VERSION 0.1.0 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -8,8 +10,8 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_SCAN_FOR_MODULES OFF)
 
 if(MINGW)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static -static-libgcc -static-libstdc++")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}   -static -static-libgcc")
+    add_compile_options(-static -static-libgcc -static-libstdc++)
+    add_link_options(-static -static-libgcc -static-libstdc++)
 endif()
 
 set(SDL_SHARED OFF CACHE BOOL "" FORCE)
@@ -37,34 +39,28 @@ set(IMGUI_BACKENDS
 
 file(GLOB_RECURSE ENGINE_SRC
     CONFIGURE_DEPENDS
-    ${CMAKE_SOURCE_DIR}/src/*.cpp
+    src/*.cpp
 )
 
-# if (WIN32)
-#     set(APP_ICON ${CMAKE_SOURCE_DIR}/resources/app.rc)
-# endif()
-
-add_executable(engine
+add_executable(${OUTPUT_FILE}
     ${ENGINE_SRC}
     ${IMGUI_SRC}
     ${IMGUI_BACKENDS}
-    # ${APP_ICON}
 )
 
-target_link_libraries(engine PRIVATE
+target_include_directories(${OUTPUT_FILE} PRIVATE
+    ${CMAKE_SOURCE_DIR}/include
+    vendor/imgui
+    vendor/imgui/backends
+)
+
+target_link_libraries(${OUTPUT_FILE} PRIVATE
     SDL3::SDL3-static
     Vulkan::Vulkan
 )
 
-target_include_directories(engine PRIVATE
-    ${CMAKE_SOURCE_DIR}/include
-    vendor/imgui
-    vendor/imgui/backends
-    ${Vulkan_INCLUDE_DIRS}
-)
-
 if(WIN32)
-    target_link_libraries(engine PRIVATE
+    target_link_libraries(${OUTPUT_FILE} PRIVATE
         winmm
         imm32
         setupapi
@@ -80,6 +76,5 @@ if(WIN32)
 endif()
 
 if(MINGW)
-    # Vulkan requires dynamic linking
-    remove_definitions(-static)
+    target_link_options(${OUTPUT_FILE} PRIVATE -Wl,-Bdynamic)
 endif()
