@@ -6,15 +6,16 @@ set(OUTPUT_FILE engine)
 
 set(SDL_SHARED OFF CACHE BOOL "" FORCE)
 set(SDL_STATIC ON CACHE BOOL "" FORCE)
-set(SDL_VULKAN ON CACHE BOOL "" FORCE)
 set(SDL_TEST OFF CACHE BOOL "" FORCE)
 set(SDL_EXAMPLES OFF CACHE BOOL "" FORCE)
 set(SDL_INSTALL OFF CACHE BOOL "" FORCE)
 
 add_subdirectory(vendor/SDL)
-add_subdirectory(vendor/volk)
+add_subdirectory(vendor/ecs)
+add_subdirectory(vendor/glad)
+add_subdirectory(vendor/stb)
 
-find_package(Vulkan REQUIRED)
+find_package(OpenGL REQUIRED)
 
 set(IMGUI_SRC
     vendor/imgui/imgui.cpp
@@ -55,8 +56,9 @@ target_include_directories(${OUTPUT_FILE} PRIVATE
 
 target_link_libraries(${OUTPUT_FILE} PRIVATE
     SDL3::SDL3-static
-    Vulkan::Vulkan
-    volk
+    ECS
+    glad
+    stb
 )
 
 if(WIN32)

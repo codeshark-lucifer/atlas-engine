@@ -3225,10 +3225,40 @@ if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   file(TOUCH_NOCREATE "D:/Programing Education/atlas - engine/build/CMakeFiles/cmake.verify_globs")
 endif()
 
-# ENGINE_SRC at CMakeLists.txt:31 (file)
+# ENGINE_SRC at CMakeLists.txt:32 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Programing Education/atlas - engine/src/*.cpp")
 set(OLD_GLOB
+  "D:/Programing Education/atlas - engine/src/core/shader.cpp"
   "D:/Programing Education/atlas - engine/src/main.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  set(NEW_ONLY ${NEW_GLOB})
+  set(OLD_ONLY ${OLD_GLOB})
+  list(REMOVE_ITEM NEW_ONLY ${OLD_GLOB})
+  list(REMOVE_ITEM OLD_ONLY ${NEW_GLOB})
+  if(NEW_ONLY)
+    message("The following files were added:")
+    foreach(VAR_FILE IN LISTS NEW_ONLY)
+      message("  +${VAR_FILE}")
+    endforeach()
+  endif()
+  if(OLD_ONLY)
+    message("The following files were removed:")
+    foreach(VAR_FILE IN LISTS OLD_ONLY)
+      message("  -${VAR_FILE}")
+    endforeach()
+  endif()
+  file(TOUCH_NOCREATE "D:/Programing Education/atlas - engine/build/CMakeFiles/cmake.verify_globs")
+endif()
+
+# ECS_SOURCES at vendor/ecs/CMakeLists.txt:8 (file)
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Programing Education/atlas - engine/vendor/ecs/src/*.cpp")
+set(OLD_GLOB
+  "D:/Programing Education/atlas - engine/vendor/ecs/src/ecs.cpp"
+  "D:/Programing Education/atlas - engine/vendor/ecs/src/ecs/entity.cpp"
+  "D:/Programing Education/atlas - engine/vendor/ecs/src/ecs/world.cpp"
+  "D:/Programing Education/atlas - engine/vendor/ecs/src/utils/matrix.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
