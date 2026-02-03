@@ -2,6 +2,7 @@
 #include <SDL3/SDL.h>
 #include <ecs/ecs.hpp>
 #include <systems/render.hpp>
+#include <engine/input.hpp>
 
 class Scene
 {
@@ -13,6 +14,7 @@ public:
         this->height = height;
         this->name = name;
 
+        InputManager::Instance().Initialize(window);
         render.Initialize(width, height);
     }
 
@@ -33,6 +35,7 @@ public:
     {
         UpdateTransforms(world, deltaTime);
         // input
+        InputManager::Instance().Update();
         // update
         for (const auto &[id, entity] : world.GetEntities())
         {
@@ -53,6 +56,10 @@ public:
     void Destroy(const EntityID &id)
     {
         world.RemoveEntity(id);
+    }
+
+    void ClearColor(Color color) {
+        render.SetBGColor(color);
     }
 
 private:

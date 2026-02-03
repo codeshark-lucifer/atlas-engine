@@ -1,8 +1,19 @@
 #pragma once
+
+template<typename T>
 class Singleton
 {
 public:
-    virtual ~Singleton() = default;
+    static T& Instance()
+    {
+        static T instance;
+        return instance;
+    }
 
-    static Singleton& Instance();
+protected:
+    Singleton() = default;
+    ~Singleton() = default;
+
+    Singleton(const Singleton&) = delete;
+    Singleton& operator=(const Singleton&) = delete;
 };

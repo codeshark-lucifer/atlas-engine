@@ -9,3 +9,4 @@ constexpr Color BLACK{0.0f, 0.0f, 0.0f, 1.0f};
 constexpr Color RED{1.0f, 0.0f, 0.0f, 1.0f};
 constexpr Color GREEN{0.0f, 1.0f, 0.0f, 1.0f};
 constexpr Color BLUE{0.0f, 0.0f, 1.0f, 1.0f};
+constexpr Color BACKGROUND{0.1f, 0.1f, 0.1f, 1.0f};

@@ -5,8 +5,7 @@
 
 #include <engine/scene.hpp>
 #include <components/camera.hpp>
-#include <components/react.hpp>
-#include <components/circle.hpp>
+#include <components/player.hpp>
 
 const char *WINDOW_NAME = "atls - engine";
 const int WINDOW_WIDTH = 956;
@@ -45,22 +44,16 @@ int main()
 
     Scene scene(window);
     scene.Initialize(WINDOW_WIDTH, WINDOW_HEIGHT, "SampleScene");
-  
+
     auto camera = scene.Create("MainCamera");
     camera->AddComponent<Camera>();
 
-    // auto square =  scene.Create("Square");
-    // square->AddComponent<React>(vec2(100, 100));
-    // if (auto transform = square->GetComponent<Transform>()) {
-    //     transform->position = {WINDOW_WIDTH / 2.0f, WINDOW_HEIGHT / 2.0f, 0.0f};
-    // }
-    
-    auto circle = scene.Create("Circle");
-    circle->AddComponent<Circle>(50.0f);
-    if (auto transform = circle->GetComponent<Transform>()) {
+    auto player =  scene.Create("Player");
+    player->AddComponent<Player>(&scene);
+    if (auto transform = player->GetComponent<Transform>()) {
         transform->position = {WINDOW_WIDTH / 2.0f, WINDOW_HEIGHT / 2.0f, 0.0f};
     }
-    
+
     scene.Start();
 
     Uint64 lastCounter = SDL_GetPerformanceCounter();
@@ -78,6 +71,8 @@ int main()
         {
             if (event.type == SDL_EVENT_QUIT)
                 running = false;
+
+            InputManager::Instance().HandleEvent(event);
         }
         deltaTime = std::min(deltaTime, 0.05f);
         scene.Update(deltaTime);
