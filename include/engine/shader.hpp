@@ -1,6 +1,7 @@
 #pragma once
 #include <glad/glad.h>
 #include <string>
+#include <unordered_map>
 
 class Shader
 {
@@ -14,7 +15,7 @@ public:
     std::string ReadFile(const std::string& path) const;
 
     template <typename T>
-    void SetUniform(const std::string &name, T value) const;
+    void SetUniform(const std::string &name, T value);
 
 private:
     std::string filepath;
@@ -22,6 +23,8 @@ private:
     unsigned int vertexShader = 0;
     unsigned int fragmentShader = 0;
     unsigned int geometryShader = 0;
+    mutable std::unordered_map<std::string, GLint> uniformLocations;
 
     unsigned int Compile(const char *source, GLenum type);
+    GLint GetUniformLocation(const std::string &name) const;
 };

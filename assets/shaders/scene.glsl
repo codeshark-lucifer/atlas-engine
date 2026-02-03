@@ -24,9 +24,17 @@ out vec4 FragColor;
 
 uniform sampler2D diffuse_texture1;
 uniform vec4 color;
+uniform bool has_texture;
 
 void main()
 {
-    vec3 albedo = texture(diffuse_texture1, vUV).rgb;
-    FragColor = color * vec4(albedo, 1.0);
+    if (has_texture)
+    {
+        vec4 albedo = texture(diffuse_texture1, vUV);
+        FragColor = color * vec4(albedo.xyz, albedo.w);
+    }
+    else
+    {
+        FragColor = color;
+    }
 }

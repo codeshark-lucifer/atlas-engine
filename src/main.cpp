@@ -23,12 +23,16 @@ int main()
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 6);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+    
+    // Enable MSAA with 4x sampling
+    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
+    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
 
     window = SDL_CreateWindow(
         WINDOW_NAME,
         WINDOW_WIDTH,
         WINDOW_HEIGHT,
-        SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
+        SDL_WINDOW_OPENGL);
 
     gl_context = SDL_GL_CreateContext(window);
 
@@ -36,9 +40,10 @@ int main()
         return -1;
 
     glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
-    glDisable(GL_DEPTH_TEST);
+    glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_MULTISAMPLE);  // Enable MSAA in OpenGL
 
     running = true;
 
@@ -47,11 +52,12 @@ int main()
 
     auto camera = scene.Create("MainCamera");
     camera->AddComponent<Camera>();
-
-    auto player =  scene.Create("Player");
+    
+    auto player = scene.Create("Player");
     player->AddComponent<Player>(&scene);
-    if (auto transform = player->GetComponent<Transform>()) {
-        transform->position = {WINDOW_WIDTH / 2.0f, WINDOW_HEIGHT / 2.0f, 0.0f};
+    if (auto transform = player->GetComponent<Transform>())
+    {
+        transform->position = {WINDOW_WIDTH / 2.0f, WINDOW_HEIGHT / 2.0f, 0.0001f};
     }
 
     scene.Start();
@@ -70,7 +76,7 @@ int main()
         while (SDL_PollEvent(&event))
         {
             if (event.type == SDL_EVENT_QUIT)
-                running = false;
+                running = false;            
 
             InputManager::Instance().HandleEvent(event);
         }

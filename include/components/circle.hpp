@@ -7,10 +7,7 @@ public:
     Circle(float radius, int segments = 32, const Color &color = WHITE, std::shared_ptr<Texture2D> sprite = nullptr)
     {
         this->color = color;
-        if (sprite)
-            this->sprite = sprite;
-        else
-            this->sprite = std::make_shared<Texture2D>("assets/textures/default_sprite.png");
+        this->sprite = sprite;
 
         std::vector<Vertex> vertices;
         std::vector<unsigned int> indices;
@@ -39,20 +36,22 @@ public:
         mesh = new Mesh(vertices, indices);
     }
 
-    void Render(Shader &shader)
+    void Render(Shader &_shader)
     {
-        shader.Use();
-        shader.SetUniform("model", entity->GetComponent<Transform>()->worldMatrix);
-        shader.SetUniform("color", color);
-
-        bool diffuseTextureFound = false;
-        if (sprite->type == Type::DIFFUSE && !diffuseTextureFound)
+        auto sh = shader == nullptr ? _shader : *shader;
+        sh.Use();
+        sh.SetUniform("model", entity->GetComponent<Transform>()->worldMatrix);
+        sh.SetUniform("color", color);
+        if (sprite)
         {
+            sh.SetUniform("has_texture", true);
             sprite->Bind(0);
-            shader.SetUniform("diffuse_texture1", 0);
-            diffuseTextureFound = true;
+            sh.SetUniform("diffuse_texture1", 0);
         }
-
+        else
+        {
+            sh.SetUniform("has_texture", false);
+        }
         mesh->Draw();
     }
 

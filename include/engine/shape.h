@@ -12,11 +12,14 @@
 class Shape : public Component
 {
 public:
-    ~Shape() {
-        if(mesh) delete mesh;
+    ~Shape()
+    {
+        if (mesh)
+            delete mesh;
     }
-    virtual void Render(Shader &shader) {}
+    virtual void Render(Shader &_shader) {}
     Mesh *mesh = nullptr;
     std::shared_ptr<Texture2D> sprite = nullptr;
     Color color;
+    Shader *shader = nullptr;
 };

@@ -21,30 +21,80 @@ public:
         mouseWheelX = 0.0f;
         mouseWheelY = 0.0f;
 
-        mouseButtons = SDL_GetMouseState(&mouseX, &mouseY);
-        SDL_GetRelativeMouseState(&mouseDX, &mouseDY);
+        // Mouse position & buttons
+        Uint32 state = SDL_GetMouseState(&mouseX, &mouseY);
+        mouseDX = mouseX - prevMouseX;
+        mouseDY = mouseY - prevMouseY;
+
+        // Mouse buttons (SDL3 uses SDL_BUTTON_LEFT / SDL_BUTTON_RIGHT etc.)
+        bool downLeft = state & SDL_BUTTON_LEFT;
+        bool downRight = state & SDL_BUTTON_RIGHT;
+        bool downMiddle = state & SDL_BUTTON_MIDDLE;
+
+        UpdateMouseButton(1, downLeft);
+        UpdateMouseButton(2, downRight);
+        UpdateMouseButton(3, downMiddle);
+
+        // Keyboard (SDL3 returns const bool*)
+        const bool *keys = SDL_GetKeyboardState(nullptr);
+        for (int i = 0; i < SDL_SCANCODE_COUNT; i++)
+        {
+            keyDown[i] = keys[i];
+            keyPressed[i] = keys[i] && !keyPrev[i];
+            keyReleased[i] = !keys[i] && keyPrev[i];
+            keyPrev[i] = keys[i];
+        }
     }
+
+    void HandleEvent(const SDL_Event &e)
+    {
+        if (e.type == SDL_EVENT_MOUSE_WHEEL)
+        {
+            mouseWheelX = e.wheel.x;
+            mouseWheelY = e.wheel.y;
+        }
+    }
+    vec2 GetMoveDirection() const
+    {
+        vec2 dir{0.0f, 0.0f};
+
+        if (IsKeyDown(SDL_SCANCODE_A))
+            dir.x -= 1.0f;
+        if (IsKeyDown(SDL_SCANCODE_D))
+            dir.x += 1.0f;
+        if (IsKeyDown(SDL_SCANCODE_W))
+            dir.y += 1.0f;
+        if (IsKeyDown(SDL_SCANCODE_S))
+            dir.y -= 1.0f;
+
+        float len = sqrt(dir.x * dir.x + dir.y * dir.y);
+        if (len > 0.0f)
+        {
+            dir.x /= len;
+            dir.y /= len;
+        }
+
+        return dir;
+    }
+
+    // --- Mouse ---
+    bool IsMouseButtonDown(int button) const { return mouseButtonDown[button]; }
+    bool IsMouseButtonPressed(int button) const { return mouseButtonPressed[button]; }
+    bool IsMouseButtonReleased(int button) const { return mouseButtonReleased[button]; }
 
     float GetMouseX() const { return mouseX; }
     float GetMouseY() const { return mouseY; }
-
     float GetMouseDeltaX() const { return mouseDX; }
     float GetMouseDeltaY() const { return mouseDY; }
-
-    bool IsKeyPressed(SDL_Scancode key) const
-    {
-        const bool *keys = SDL_GetKeyboardState(nullptr);
-        return keys[key];
-    }
-
-    bool IsMouseButtonPressed(Uint32 button) const
-    {
-        return mouseButtons == button;
-    }
+    float GetMouseWheelX() const { return mouseWheelX; }
+    float GetMouseWheelY() const { return mouseWheelY; }
 
     void SetMouseVisible(bool visible)
     {
-        bool success = visible ? SDL_ShowCursor() : SDL_HideCursor();
+        if (visible)
+            SDL_ShowCursor();
+        else
+            SDL_HideCursor();
     }
 
     void LockMouse(bool lock)
@@ -57,40 +107,43 @@ public:
         return SDL_GetWindowRelativeMouseMode(window);
     }
 
-    void HandleEvent(const SDL_Event &e)
-    {
-        switch (e.type)
-        {
-        case SDL_EVENT_MOUSE_BUTTON_DOWN:
-        case SDL_EVENT_MOUSE_BUTTON_UP:
-            mouseButtons = SDL_GetMouseState(nullptr, nullptr);
-            break;
-
-        case SDL_EVENT_MOUSE_WHEEL:
-            mouseWheelX = e.wheel.x;
-            mouseWheelY = e.wheel.y;
-            break;
-
-        default:
-            break;
-        }
-    }
+    // --- Keyboard ---
+    bool IsKeyDown(int scancode) const { return keyDown[scancode]; }
+    bool IsKeyPressed(int scancode) const { return keyPressed[scancode]; }
+    bool IsKeyReleased(int scancode) const { return keyReleased[scancode]; }
 
 private:
     InputManager() = default;
 
-private:
+    void UpdateMouseButton(int button, bool down)
+    {
+        mouseButtonDown[button] = down;
+        mouseButtonPressed[button] = down && !mouseButtonPrev[button];
+        mouseButtonReleased[button] = !down && mouseButtonPrev[button];
+        mouseButtonPrev[button] = down;
+    }
+
     SDL_Window *window = nullptr;
+
+    // Mouse
+    float mouseX = 0.0f;
+    float mouseY = 0.0f;
+
+    int prevMouseX = 0;
+    int prevMouseY = 0;
+    int mouseDX = 0;
+    int mouseDY = 0;
     float mouseWheelX = 0.0f;
     float mouseWheelY = 0.0f;
 
-    float mouseX = 0.0f;
-    float mouseY = 0.0f;
-    float prevMouseX = 0.0f;
-    float prevMouseY = 0.0f;
+    bool mouseButtonDown[6] = {false};
+    bool mouseButtonPressed[6] = {false};
+    bool mouseButtonReleased[6] = {false};
+    bool mouseButtonPrev[6] = {false};
 
-    float mouseDX = 0.0f;
-    float mouseDY = 0.0f;
-
-    Uint32 mouseButtons = 0;
+    // Keyboard
+    bool keyDown[SDL_SCANCODE_COUNT] = {false};
+    bool keyPressed[SDL_SCANCODE_COUNT] = {false};
+    bool keyReleased[SDL_SCANCODE_COUNT] = {false};
+    bool keyPrev[SDL_SCANCODE_COUNT] = {false};
 };

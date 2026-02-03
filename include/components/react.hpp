@@ -4,13 +4,11 @@
 class React : public Shape
 {
 public:
-    React(vec2 size, const Color &color = WHITE, std::shared_ptr<Texture2D> sprite = nullptr)
+    React(vec2 size, const Color &color = WHITE, Shader *shader = nullptr, std::shared_ptr<Texture2D> sprite = nullptr)
     {
+        this->shader = shader;
         this->color = color;
-        if (sprite)
-            this->sprite = sprite;
-        else
-            this->sprite = std::make_shared<Texture2D>("assets/textures/default_sprite.png");
+        this->sprite = sprite;
 
         float hw = size.x * 0.5f;
         float hh = size.y * 0.5f;
@@ -29,24 +27,21 @@ public:
         mesh = new Mesh(vertices, indices);
     }
 
-    void Render(Shader &shader) override
+    void Render(Shader &_shader) override
     {
-        shader.Use();
-        shader.SetUniform("model", entity->GetComponent<Transform>()->worldMatrix);
-        shader.SetUniform("color", color);
-        bool diffuseTextureFound = false;
-        if (sprite->type == Type::DIFFUSE && !diffuseTextureFound)
+        auto sh = shader == nullptr ? _shader : *shader;
+        sh.Use();
+        sh.SetUniform("model", entity->GetComponent<Transform>()->worldMatrix);
+        sh.SetUniform("color", color);
+        if (sprite)
         {
-            sprite->Bind(0); // Bind first diffuse texture to unit 0
-            shader.SetUniform("diffuse_texture1", 0);
-            diffuseTextureFound = true;
+            sh.SetUniform("has_texture", true);
+            sprite->Bind(0);
+            sh.SetUniform("diffuse_texture1", 0);
         }
-        else if (sprite->type == Type::SPECULAR)
+        else
         {
-            // For now, ignoring specular textures as the shader doesn't handle them
-            // correctly with multiple units. The fragment shader only has diffuse_texture1.
-            // If specular textures are needed, the fragment shader needs to be updated
-            // to declare more samplers (e.g., specular_texture1, etc.)
+            sh.SetUniform("has_texture", false);
         }
         mesh->Draw();
     }
