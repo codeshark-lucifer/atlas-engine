@@ -14,7 +14,6 @@ namespace physics
         PhysicsWorld() {}
         ~PhysicsWorld() { Clean(); }
 
-        void setGravity(vec2 g) { gravity = g; }
         void addRigidBody(Rigidbody2D *rigid)
         {
             if (std::find(bodies.begin(), bodies.end(), rigid) == bodies.end())
@@ -40,32 +39,50 @@ namespace physics
             if (deltaTime <= 0.0f)
                 return;
 
-            // Apply forces and integrate
             for (auto body : bodies)
             {
-                if (!body)
-                    continue;
+                if (!body || body->invMass == 0.0f)
+                    continue; // static or kinematic
 
-                // Apply gravity only to dynamic bodies
-                if (body->mass > 0.0f)
+                // Apply gravity as a FORCE
+                body->AddForce(body->gravity * body->mass);
+
+                // Linear integration
+                vec2 acceleration = body->force * body->invMass;
+                body->velocity += acceleration * deltaTime;
+                
+                // Apply linear damping (friction)
+                float dampingFactor = 1.0f - body->linearDamping * deltaTime;
+                body->velocity.x *= dampingFactor;
+                body->velocity.y *= dampingFactor;
+                
+                // Clamp velocity to max velocity
+                float velocityMagnitude = sqrt(body->velocity.x * body->velocity.x + body->velocity.y * body->velocity.y);
+                if (velocityMagnitude > body->maxVelocity)
                 {
-                    // integrate linear velocity
-                    body->velocity += gravity * deltaTime;
-
-                    // integrate position
-                    body->position += body->velocity * deltaTime;
-
-                    // integrate rotation (simple Euler)
-                    if (body->angularVelocity != 0.0f)
-                    {
-                        float angle = body->angularVelocity * deltaTime;
-                        quat dq = quat::FromAxisAngle(vec3{0.0f, 0.0f, 1.0f}, angle);
-                        body->quaternion = dq * body->quaternion;
-                    }
+                    body->velocity.x = (body->velocity.x / velocityMagnitude) * body->maxVelocity;
+                    body->velocity.y = (body->velocity.y / velocityMagnitude) * body->maxVelocity;
                 }
+                
+                body->position += body->velocity * deltaTime;
+
+                // Angular integration
+                if (body->angularVelocity != 0.0f && body->invInertia > 0.0f)
+                {
+                    body->angularVelocity += body->torque * body->invInertia * deltaTime;
+
+                    // Apply angular damping (friction)
+                    body->angularVelocity *= (1.0f - body->angularDamping * deltaTime);
+
+                    float angle = body->angularVelocity * deltaTime;
+                    quat dq = quat::FromAxisAngle(vec3{0, 0, 1}, angle);
+                    body->quaternion = dq * body->quaternion;
+                }
+
+                body->ClearForces();
             }
 
-            // Simple collision detection and response (circle-box AABB)
+            // --- COLLISIONS (unchanged) ---
             for (size_t i = 0; i < bodies.size(); ++i)
             {
                 for (size_t j = i + 1; j < bodies.size(); ++j)
@@ -75,29 +92,25 @@ namespace physics
                     if (!bodyA || !bodyB)
                         continue;
 
-                    // Skip if both are static
-                    bool aStatic = bodyA->mass == 0.0f;
-                    bool bStatic = bodyB->mass == 0.0f;
+                    bool aStatic = bodyA->invMass == 0.0f;
+                    bool bStatic = bodyB->invMass == 0.0f;
                     if (aStatic && bStatic)
                         continue;
 
-                    // Simple AABB collision for boxes and circles
-                    physics::ShapeCircle *circleA = bodyA->shape ? dynamic_cast<physics::ShapeCircle *>(bodyA->shape) : nullptr;
-                    physics::ShapeBox *boxA = bodyA->shape ? dynamic_cast<physics::ShapeBox *>(bodyA->shape) : nullptr;
-                    physics::ShapeTriangle *triA = bodyA->shape ? dynamic_cast<physics::ShapeTriangle *>(bodyA->shape) : nullptr;
-                    physics::ShapeCircle *circleB = bodyB->shape ? dynamic_cast<physics::ShapeCircle *>(bodyB->shape) : nullptr;
-                    physics::ShapeBox *boxB = bodyB->shape ? dynamic_cast<physics::ShapeBox *>(bodyB->shape) : nullptr;
-                    physics::ShapeTriangle *triB = bodyB->shape ? dynamic_cast<physics::ShapeTriangle *>(bodyB->shape) : nullptr;
+                    auto *circleA = bodyA->shape ? dynamic_cast<ShapeCircle *>(bodyA->shape) : nullptr;
+                    auto *boxA = bodyA->shape ? dynamic_cast<ShapeBox *>(bodyA->shape) : nullptr;
+                    auto *triA = bodyA->shape ? dynamic_cast<ShapeTriangle *>(bodyA->shape) : nullptr;
 
-                    // Circle-Box collision
+                    auto *circleB = bodyB->shape ? dynamic_cast<ShapeCircle *>(bodyB->shape) : nullptr;
+                    auto *boxB = bodyB->shape ? dynamic_cast<ShapeBox *>(bodyB->shape) : nullptr;
+                    auto *triB = bodyB->shape ? dynamic_cast<ShapeTriangle *>(bodyB->shape) : nullptr;
+
                     if (circleA && boxB)
                         ResolveCircleBoxCollision(bodyA, circleA, bodyB, boxB, 0.8f);
                     else if (boxA && circleB)
                         ResolveCircleBoxCollision(bodyB, circleB, bodyA, boxA, 0.8f);
-                    // Circle-Circle collision
                     else if (circleA && circleB)
                         ResolveCircleCircleCollision(bodyA, circleA, bodyB, circleB, 0.8f);
-                    // Triangle-Circle collision
                     else if (triA && circleB)
                         ResolveCircleTriangleCollision(bodyB, circleB, bodyA, triA, 0.8f);
                     else if (triB && circleA)
@@ -186,7 +199,7 @@ namespace physics
                 vec2 normal = dist > 0.001f ? diff / dist : vec2{0.0f, 1.0f};
 
                 // Separate bodies to prevent stickiness
-                const float slop = 0.01f;  // Separation threshold
+                const float slop = 0.01f; // Separation threshold
                 float totalMass = circleA->mass + circleB->mass;
 
                 if (circleA->mass > 0.0f && circleB->mass == 0.0f)
@@ -216,9 +229,9 @@ namespace physics
                 if (velAlongNormal < 0.0f)
                 {
                     // Use effective restitution (reduce bounciness to prevent stickiness)
-                    float e = restitution * 0.6f;  // Dampen restitution
+                    float e = restitution * 0.6f; // Dampen restitution
                     float denominator = circleA->invMass + circleB->invMass;
-                    
+
                     if (denominator > 0.0f)
                     {
                         float impulse = -(1.0f + e) * velAlongNormal / denominator;
@@ -312,7 +325,6 @@ namespace physics
         }
 
     private:
-        vec2 gravity = {0.0f, 0.0f};
         std::vector<Rigidbody2D *> bodies;
     };
 };

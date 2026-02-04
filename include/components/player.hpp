@@ -20,45 +20,65 @@ public:
     void Start() override
     {
         transform = entity->GetComponent<Transform>();
-        entity->AddComponent<Circle>(5.0f);
+        rb = entity->GetComponent<Rigidbody2D>();
+
+        if (rb)
+        {
+            rb->mass = 1.0f;
+            rb->useGravity = false;
+            rb->gravity = {0.0f, 0.0f};
+        }
+
+        auto collider = entity->GetComponent<CircleCollider2D>();
+        if (collider)
+        {
+            collider->radius = radius;
+        }
+
+        // Add render circle
+        entity->AddComponent<Circle>(radius, 32, WHITE, std::make_shared<Texture2D>("assets/textures/cup.png"));
+
+        debuger = scene->Create("Debugger");
+        debuger->AddComponent<Circle>(5.0f, 32, RED);
     }
 
     void Update(const float &deltaTime) override
     {
         auto &input = InputManager::Instance();
-        // Convert screen coordinates (Y down) to world coordinates (Y up)
-        // Screen height is 540, so invert Y: screenY -> (540 - screenY)
-        float screenY = input.GetMouseY();
-        vec2 mouse = {input.GetMouseX(), 540.0f - screenY};
-        transform->position = {mouse.x, mouse.y, 0.0f};
-        if(input.IsMouseButtonPressed(SDL_BUTTON_LEFT)) {
-            CreateSphere(mouse);
-        }
-    }
+        vec2 move = input.GetMoveDirection();
 
-    void CreateSphere(vec2 pos)
-    {
-        auto ball = scene->Create("Ball#");
-        float radius = 10.0f;
-        
-        // Set position FIRST via Transform
-        if (auto t = ball->GetComponent<Transform>())
+        // The physics body might not be created until after the first frame
+        // due to PhysicsSystem initialization
+        if (rb && rb->body && vec2::Dot(move, move) > 0.1f)
         {
-            t->position = {pos.x, pos.y, 0.0001f};
+            rb->body->AddForce(move * speed);
         }
-        
-        ball->AddComponent<Circle>(radius);
 
-        // Add collider FIRST so physics system can find it
-        auto collider = ball->AddComponent<CircleCollider2D>();
-        collider->radius = radius;
+        // Make player face towards mouse
+        if (transform)
+        {
+            float mouseX = input.GetMouseX();
+            float mouseY = 540.0f - input.GetMouseY();
 
-        // Then add rigidbody (body will be created by physics system later)
-        auto rb = ball->AddComponent<Rigidbody2D>();
-        rb->mass = 1.0f; // Dynamic: has mass so it falls under gravity
+            // Calculate direction from player to mouse
+            float dirX = mouseX - transform->position.x;
+            float dirY = mouseY - transform->position.y;
+            
+            // Calculate angle (atan2 returns angle in radians)
+            float angle = atan2f(dirY, dirX);
+            
+            // Create quaternion from angle (rotating around Z axis)
+            transform->rotation = quat::FromAxisAngle(vec3{0, 0, 1}, angle);
+
+            debuger->GetComponent<Transform>()->position = {mouseX, mouseY, 0.0f};
+        }
     }
 
 private:
+    float speed = 200.0f;
+    float radius = 15.0f;
     Scene *scene = nullptr;
     Transform *transform = nullptr;
+    Rigidbody2D *rb = nullptr;
+    Entity *debuger = nullptr;
 };

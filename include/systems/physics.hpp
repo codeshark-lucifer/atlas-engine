@@ -17,7 +17,6 @@ public:
     PhysicsSystem() : System("PhysicsSystem")
     {
         world = new physics::PhysicsWorld();
-        world->setGravity(vec2(0.0f, 0.0f));  // No gravity in space!
     }
 
     ~PhysicsSystem()
@@ -120,6 +119,11 @@ private:
             }
             if (!rigid->useGravity)
                 body->gravity = {0.0f, 0.0f};
+            
+            // Set damping and velocity limit properties from the component
+            body->linearDamping = rigid->linearDamping;
+            body->angularDamping = rigid->angularDamping;
+            body->maxVelocity = rigid->maxVelocity;
         }
 
         world->addRigidBody(body);
