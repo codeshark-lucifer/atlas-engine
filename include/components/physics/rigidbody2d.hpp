@@ -4,4 +4,8 @@
 
 class Rigidbody2D : public PhysicsComponent
 {
+public:
+    float mass{0.0f};
+    bool isKinematic{false};
+    bool useGravity{true};
 };

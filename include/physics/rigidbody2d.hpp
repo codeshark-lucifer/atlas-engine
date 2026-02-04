@@ -3,26 +3,51 @@
 #include "collider2d.hpp"
 #include "comp.h"
 
-namespace physics{
-    struct Rigidbody2D 
+namespace physics
+{
+    struct Rigidbody2D
     {
-        Rigidbody2D(float mass, MotionState motion, PhysicsShape shape, vec2 intertia)
+        Rigidbody2D(float mass, const MotionState &motion, PhysicsShape *s)
+            : position(motion.position),
+              quaternion(motion.quaternion),
+              mass(mass),
+              shape(s),
+              velocity{0.0f, 0.0f},
+              angularVelocity(0.0f)
         {
-            this->mass = mass;
-            this->position = motion.position;
-            this->quaternion = motion.quaternion;
-            this->mass = mass;
-            this->intertia = intertia;
+            if (shape)
+            {
+                inertia = shape->CalculateLocalInertia(mass);
+            }
+            else
+            {
+                inertia = 0.0f;
+            }
+
+            invMass = (mass > 0.0f) ? 1.0f / mass : 0.0f;
+            invInertia = (inertia > 0.0f) ? 1.0f / inertia : 0.0f;
         }
-    
+
         vec2 position;
         quat quaternion;
-    
+
+        vec2 velocity;
+        float angularVelocity = 0.0f;
+
+        vec2 gravity;
         float mass;
-        vec2 intertia;
-    
-        void CalulateLocalIntertia(float m, vec2 inter)
+        float inertia = 0.0f;   // rotational inertia (scalar)
+        float invMass = 0.0f;
+        float invInertia = 0.0f;
+
+        PhysicsShape *shape = nullptr; // non-owning
+
+        CollistionObject flag = CollistionObject::None;
+
+        MotionState GetMotion() const
         {
+            return MotionState{position, quaternion};
         }
     };
-};
+
+};// namespace physics

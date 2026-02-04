@@ -24,7 +24,7 @@ int main()
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 6);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-    
+
     // Enable MSAA with 4x sampling
     SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
     SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
@@ -44,7 +44,7 @@ int main()
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glEnable(GL_MULTISAMPLE);  // Enable MSAA in OpenGL
+    glEnable(GL_MULTISAMPLE); // Enable MSAA in OpenGL
 
     running = true;
 
@@ -53,15 +53,26 @@ int main()
 
     auto camera = scene.Create("MainCamera");
     camera->AddComponent<Camera>();
-    
+
     auto player = scene.Create("Player");
-    // player->AddComponent<Player>(&scene);
-    player->AddComponent<React>(vec2(100.0f));
+    player->AddComponent<Player>(&scene);
     if (auto transform = player->GetComponent<Transform>())
     {
-        transform->position = {WINDOW_WIDTH / 2.0f, WINDOW_HEIGHT / 2.0f, 0.0001f};
+        transform->position = {WINDOW_WIDTH / 2.0f, WINDOW_HEIGHT - 100.0f, 0.0001f};
     }
 
+    auto platform = scene.Create("Platform");
+    vec2 size = vec2(500.0f, 50.0f);
+    platform->AddComponent<React>(size);
+    auto platformRB = platform->AddComponent<Rigidbody2D>();
+    platformRB->mass = 0.0f;  // Static: infinite mass
+    auto platformCollider = platform->AddComponent<BoxCollider2D>();
+    platformCollider->size = size;
+    
+    if (auto transform = platform->GetComponent<Transform>())
+    {
+        transform->position = {WINDOW_WIDTH / 2.0f, 100.0f, 0.0001f};
+    }
     scene.Start();
 
     Uint64 lastCounter = SDL_GetPerformanceCounter();
@@ -78,7 +89,7 @@ int main()
         while (SDL_PollEvent(&event))
         {
             if (event.type == SDL_EVENT_QUIT)
-                running = false;            
+                running = false;
 
             InputManager::Instance().HandleEvent(event);
         }

@@ -1,8 +1,10 @@
 #pragma once
 #include <SDL3/SDL.h>
 #include <ecs/ecs.hpp>
-#include <systems/render.hpp>
 #include <engine/input.hpp>
+
+#include <systems/render.hpp>
+#include <systems/physics.hpp>
 
 class Scene
 {
@@ -21,7 +23,8 @@ public:
     void Start()
     {
         render.OnStart(world);
-        
+        physics.OnStart(world);
+
         for (const auto &[id, entity] : world.GetEntities())
         {
             for (const auto &comp : entity->GetAllComponent())
@@ -36,6 +39,8 @@ public:
         UpdateTransforms(world, deltaTime);
         // input
         InputManager::Instance().Update();
+        // physics update
+        physics.OnUpdate(world, deltaTime);
         // update
         for (const auto &[id, entity] : world.GetEntities())
         {
@@ -69,4 +74,5 @@ private:
     SDL_Window *window = nullptr;
 
     RenderSystem render;
+    PhysicsSystem physics;
 };
