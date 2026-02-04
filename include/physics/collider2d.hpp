@@ -73,6 +73,46 @@ namespace physics
         }
     };
 
+    struct ShapeTriangle : public PhysicsShape
+    {
+        vec2 vertices[3];  // Three vertices in local space
+
+        ShapeTriangle(const vec2 &v0, const vec2 &v1, const vec2 &v2)
+        {
+            vertices[0] = v0;
+            vertices[1] = v1;
+            vertices[2] = v2;
+        }
+
+        // Triangle moment of inertia: (1/18) * m * (sum of squared distances from centroid)
+        float CalculateLocalInertia(float mass) const override
+        {
+            // Calculate centroid
+            vec2 centroid = (vertices[0] + vertices[1] + vertices[2]) / 3.0f;
+            
+            // Sum squared distances from centroid
+            float sumSq = 0.0f;
+            for (int i = 0; i < 3; ++i)
+            {
+                vec2 v = vertices[i] - centroid;
+                sumSq += v.x * v.x + v.y * v.y;
+            }
+            
+            return (1.0f / 18.0f) * mass * sumSq;
+        }
+
+        // Get rotated vertices for collision detection
+        void GetWorldVertices(const vec2 &position, const quat &rotation, vec2 out[3]) const
+        {
+            for (int i = 0; i < 3; ++i)
+            {
+                // Rotate vertex
+                vec3 rotated = rotation * vec3{vertices[i].x, vertices[i].y, 0.0f};
+                out[i] = position + vec2{rotated.x, rotated.y};
+            }
+        }
+    };
+
     struct Collider2D
     {
         std::unique_ptr<PhysicsShape> shape;

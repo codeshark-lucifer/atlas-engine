@@ -17,7 +17,7 @@ public:
     PhysicsSystem() : System("PhysicsSystem")
     {
         world = new physics::PhysicsWorld();
-        world->setGravity(vec2(0.0f, -9.81f));
+        world->setGravity(vec2(0.0f, 0.0f));  // No gravity in space!
     }
 
     ~PhysicsSystem()
@@ -71,10 +71,11 @@ private:
     {
         for (const auto &[id, entity] : entities.GetEntities())
         {
-            // Look for any collider (BoxCollider2D or CircleCollider2D)
+            // Look for any collider (BoxCollider2D, CircleCollider2D, or TriangleCollider2D)
             auto boxCollider = entity->GetComponent<BoxCollider2D>();
             auto circleCollider = entity->GetComponent<CircleCollider2D>();
-            Collider2D *collider = boxCollider ? (Collider2D *)boxCollider : (circleCollider ? (Collider2D *)circleCollider : nullptr);
+            Collider2D *collider = boxCollider ? (Collider2D *)boxCollider : 
+                                   (circleCollider ? (Collider2D *)circleCollider : nullptr);
 
             auto rigidbody = entity->GetComponent<::Rigidbody2D>();
 

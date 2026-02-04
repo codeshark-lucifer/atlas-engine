@@ -8,4 +8,11 @@ public:
     float mass{0.0f};
     bool isKinematic{false};
     bool useGravity{true};
+
+    void Start() override
+    {
+        Transform *trans = entity->GetComponent<Transform>();
+        if (body)
+            body->position = {trans->position.x, trans->position.y};
+    }
 };

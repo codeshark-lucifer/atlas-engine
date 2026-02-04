@@ -17,7 +17,6 @@ namespace physics
         void setGravity(vec2 g) { gravity = g; }
         void addRigidBody(Rigidbody2D *rigid)
         {
-            std::cout << "ADD RIGID\n";
             if (std::find(bodies.begin(), bodies.end(), rigid) == bodies.end())
                 bodies.push_back(rigid);
         }
@@ -85,8 +84,10 @@ namespace physics
                     // Simple AABB collision for boxes and circles
                     physics::ShapeCircle *circleA = bodyA->shape ? dynamic_cast<physics::ShapeCircle *>(bodyA->shape) : nullptr;
                     physics::ShapeBox *boxA = bodyA->shape ? dynamic_cast<physics::ShapeBox *>(bodyA->shape) : nullptr;
+                    physics::ShapeTriangle *triA = bodyA->shape ? dynamic_cast<physics::ShapeTriangle *>(bodyA->shape) : nullptr;
                     physics::ShapeCircle *circleB = bodyB->shape ? dynamic_cast<physics::ShapeCircle *>(bodyB->shape) : nullptr;
                     physics::ShapeBox *boxB = bodyB->shape ? dynamic_cast<physics::ShapeBox *>(bodyB->shape) : nullptr;
+                    physics::ShapeTriangle *triB = bodyB->shape ? dynamic_cast<physics::ShapeTriangle *>(bodyB->shape) : nullptr;
 
                     // Circle-Box collision
                     if (circleA && boxB)
@@ -96,6 +97,11 @@ namespace physics
                     // Circle-Circle collision
                     else if (circleA && circleB)
                         ResolveCircleCircleCollision(bodyA, circleA, bodyB, circleB, 0.8f);
+                    // Triangle-Circle collision
+                    else if (triA && circleB)
+                        ResolveCircleTriangleCollision(bodyB, circleB, bodyA, triA, 0.8f);
+                    else if (triB && circleA)
+                        ResolveCircleTriangleCollision(bodyA, circleA, bodyB, triB, 0.8f);
                 }
             }
         }
@@ -105,21 +111,36 @@ namespace physics
         {
             if (!circleShape || !boxShape)
                 return;
-            // Simple AABB check: circle center vs box
-            vec2 boxMin = box->position - boxShape->halfSize;
-            vec2 boxMax = box->position + boxShape->halfSize;
-            vec2 closest = circle->position;
-            closest.x = std::max(boxMin.x, std::min(closest.x, boxMax.x));
-            closest.y = std::max(boxMin.y, std::min(closest.y, boxMax.y));
 
-            vec2 diff = circle->position - closest;
-            float dist = std::sqrt(diff.x * diff.x + diff.y * diff.y);
+            // OBB (Oriented Bounding Box) collision: account for box rotation
+            // Get box's local axes from its quaternion
+            vec3 boxAxisX = box->quaternion * vec3{1.0f, 0.0f, 0.0f};
+            vec3 boxAxisY = box->quaternion * vec3{0.0f, 1.0f, 0.0f};
+
+            // Find closest point on rotated box to circle
+            vec2 diff = circle->position - box->position;
+
+            // Project diff onto box's local axes
+            float distX = diff.x * boxAxisX.x + diff.y * boxAxisX.y;
+            float distY = diff.x * boxAxisY.x + diff.y * boxAxisY.y;
+
+            // Clamp to box half-extents
+            distX = std::max(-boxShape->halfSize.x, std::min(distX, boxShape->halfSize.x));
+            distY = std::max(-boxShape->halfSize.y, std::min(distY, boxShape->halfSize.y));
+
+            // Convert back to world space
+            vec2 closest = box->position + vec2{
+                                               distX * boxAxisX.x + distY * boxAxisY.x,
+                                               distX * boxAxisX.y + distY * boxAxisY.y};
+
+            vec2 normal = circle->position - closest;
+            float dist = std::sqrt(normal.x * normal.x + normal.y * normal.y);
             float penetration = circleShape->radius - dist;
 
             if (penetration > 0.0f)
             {
-                // Collision detected
-                vec2 normal = dist > 0.001f ? diff / dist : vec2{0.0f, 1.0f};
+                // Normalize collision normal
+                normal = dist > 0.001f ? normal / dist : vec2{0.0f, 1.0f};
 
                 // Separate bodies
                 if (circle->mass > 0.0f && box->mass == 0.0f)
@@ -156,35 +177,127 @@ namespace physics
                 return;
             vec2 diff = circleB->position - circleA->position;
             float dist = std::sqrt(diff.x * diff.x + diff.y * diff.y);
-            float penetration = (shapeA->radius + shapeB->radius) - dist;
+            float minDist = shapeA->radius + shapeB->radius;
+            float penetration = minDist - dist;
 
             if (penetration > 0.0f)
             {
+                // Normal points from A to B
                 vec2 normal = dist > 0.001f ? diff / dist : vec2{0.0f, 1.0f};
 
-                // Separate bodies
+                // Separate bodies to prevent stickiness
+                const float slop = 0.01f;  // Separation threshold
+                float totalMass = circleA->mass + circleB->mass;
+
                 if (circleA->mass > 0.0f && circleB->mass == 0.0f)
                 {
-                    circleA->position += normal * (-penetration - 0.01f);
+                    // A is dynamic, B is static: push A away
+                    circleA->position += normal * (-penetration - slop);
+                }
+                else if (circleA->mass == 0.0f && circleB->mass > 0.0f)
+                {
+                    // A is static, B is dynamic: push B away
+                    circleB->position += normal * (penetration + slop);
                 }
                 else if (circleA->mass > 0.0f && circleB->mass > 0.0f)
                 {
-                    circleA->position += normal * (-penetration * 0.5f - 0.01f);
-                    circleB->position += normal * (penetration * 0.5f + 0.01f);
+                    // Both dynamic: push both away proportionally to mass
+                    float ratioA = circleB->mass / totalMass;
+                    float ratioB = circleA->mass / totalMass;
+                    circleA->position += normal * (-(penetration + slop) * ratioA);
+                    circleB->position += normal * ((penetration + slop) * ratioB);
                 }
 
                 // Resolve velocity (impulse-based)
-                float relVel = (circleA->velocity.x - circleB->velocity.x) * normal.x +
-                               (circleA->velocity.y - circleB->velocity.y) * normal.y;
+                vec2 relVel = circleA->velocity - circleB->velocity;
+                float velAlongNormal = relVel.x * normal.x + relVel.y * normal.y;
+
+                // Only resolve if velocities are moving towards each other
+                if (velAlongNormal < 0.0f)
+                {
+                    // Use effective restitution (reduce bounciness to prevent stickiness)
+                    float e = restitution * 0.6f;  // Dampen restitution
+                    float denominator = circleA->invMass + circleB->invMass;
+                    
+                    if (denominator > 0.0f)
+                    {
+                        float impulse = -(1.0f + e) * velAlongNormal / denominator;
+                        circleA->velocity += normal * (impulse * circleA->invMass);
+                        circleB->velocity += normal * (-impulse * circleB->invMass);
+                    }
+                }
+            }
+        }
+
+        void ResolveCircleTriangleCollision(Rigidbody2D *circle, physics::ShapeCircle *circleShape,
+                                            Rigidbody2D *tri, physics::ShapeTriangle *triShape, float restitution)
+        {
+            if (!circleShape || !triShape)
+                return;
+
+            // Get triangle vertices in world space
+            vec2 triVerts[3];
+            triShape->GetWorldVertices(tri->position, tri->quaternion, triVerts);
+
+            // Find closest point on triangle to circle
+            vec2 closest = triVerts[0];
+            float closestDist = 1e9f;
+
+            // Check against all three edges
+            for (int i = 0; i < 3; ++i)
+            {
+                vec2 v0 = triVerts[i];
+                vec2 v1 = triVerts[(i + 1) % 3];
+                vec2 edge = v1 - v0;
+                vec2 diff = circle->position - v0;
+
+                // Project circle onto edge
+                float edgeLenSq = edge.x * edge.x + edge.y * edge.y;
+                float t = (diff.x * edge.x + diff.y * edge.y) / edgeLenSq;
+                t = std::max(0.0f, std::min(1.0f, t));
+
+                vec2 point = v0 + edge * t;
+                vec2 toDist = circle->position - point;
+                float dist = std::sqrt(toDist.x * toDist.x + toDist.y * toDist.y);
+
+                if (dist < closestDist)
+                {
+                    closestDist = dist;
+                    closest = point;
+                }
+            }
+
+            float penetration = circleShape->radius - closestDist;
+
+            if (penetration > 0.0f)
+            {
+                vec2 normal = circle->position - closest;
+                float dist = std::sqrt(normal.x * normal.x + normal.y * normal.y);
+                normal = dist > 0.001f ? normal / dist : vec2{0.0f, 1.0f};
+
+                // Separate bodies
+                if (circle->mass > 0.0f && tri->mass == 0.0f)
+                {
+                    circle->position += normal * (penetration + 0.01f);
+                }
+                else if (circle->mass > 0.0f && tri->mass > 0.0f)
+                {
+                    circle->position += normal * (penetration * 0.5f + 0.01f);
+                    tri->position += normal * (-penetration * 0.5f - 0.01f);
+                }
+
+                // Resolve velocity
+                float relVel = (circle->velocity.x - tri->velocity.x) * normal.x +
+                               (circle->velocity.y - tri->velocity.y) * normal.y;
 
                 if (relVel < 0.0f)
                 {
-                    float denominator = circleA->invMass + circleB->invMass;
+                    float denominator = circle->invMass + tri->invMass;
                     if (denominator > 0.0f)
                     {
                         float impulse = -(1.0f + restitution) * relVel / denominator;
-                        circleA->velocity += normal * impulse * circleA->invMass;
-                        circleB->velocity += normal * (-impulse * circleB->invMass);
+                        circle->velocity += normal * impulse * circle->invMass;
+                        tri->velocity += normal * (-impulse * tri->invMass);
                     }
                 }
             }
