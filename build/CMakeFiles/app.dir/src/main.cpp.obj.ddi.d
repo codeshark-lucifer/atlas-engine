@@ -468,4 +468,26 @@ CMakeFiles\app.dir\src\main.cpp.obj.ddi: \
  D:/Programing\ Education/atlas\ -\ engine/vendor/glad/include/KHR/khrplatform.h \
  D:/Programing\ Education/atlas\ -\ engine/include/shader.h \
  D:/Programing\ Education/atlas\ -\ engine/include/stb/stb_image.h \
- C:/msys64/mingw64/include/c++/15.2.0/math.h
+ C:/msys64/mingw64/include/c++/15.2.0/math.h \
+ D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/ft2build.h \
+ D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/config/ftheader.h \
+ D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/freetype.h \
+ D:/Programing\ Education/atlas\ -\ engine/build/vendor/freetype/include/freetype/config/ftconfig.h \
+ D:/Programing\ Education/atlas\ -\ engine/build/vendor/freetype/include/freetype/config/ftoption.h \
+ D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/config/ftstdlib.h \
+ C:/msys64/mingw64/include/setjmp.h \
+ D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/config/integer-types.h \
+ D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/config/public-macros.h \
+ D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/config/mac-support.h \
+ D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/fttypes.h \
+ D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/ftsystem.h \
+ D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/ftimage.h \
+ D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/fterrors.h \
+ D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/ftmoderr.h \
+ D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/fterrdef.h \
+ C:/msys64/mingw64/include/c++/15.2.0/map \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/stl_tree.h \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/node_handle.h \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/stl_map.h \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/stl_multimap.h \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/erase_if.h

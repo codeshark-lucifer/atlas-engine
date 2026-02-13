@@ -13,6 +13,7 @@ struct Transform
 struct RenderData
 {
     Array<Transform> transforms;
+    Array<Transform> uiTransforms;
 };
 
 extern Input *input;

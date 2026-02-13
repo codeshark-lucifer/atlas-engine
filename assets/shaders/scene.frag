@@ -1,15 +1,28 @@
 #version 430 core
+
 layout (location = 0) in vec2 textureCoordsIn;
-
 layout (location = 0) out vec4 fragColor;
-
 layout (binding = 0) uniform sampler2D textureAtlas;
 
-void main() {
-    vec4 textureColor = texelFetch(textureAtlas, ivec2(textureCoordsIn), 0);
+uniform bool isFont;
 
-    if(textureColor.r == 0.0)
-      discard;
+void main()
+{
+    vec4 texColor = texture(textureAtlas, textureCoordsIn);
 
-    fragColor = textureColor;
+    // Detect RED-only texture (font)
+    if(isFont)
+    {
+        float alpha = texColor.r;
+        if(alpha < 0.01)
+            discard;
+        fragColor = vec4(1.0, 1.0, 1.0, alpha);
+    }
+    else
+    {
+        if(texColor.a < 0.01)
+            discard;
+        fragColor = texColor;
+    }
+
 }

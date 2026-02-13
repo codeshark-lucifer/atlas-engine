@@ -15,6 +15,7 @@ layout (std430, binding = 0) buffer TransformSBO
 };
 
 uniform mat4 projection;
+uniform vec2 atlasSize;
 
 void main()
 {
@@ -28,7 +29,7 @@ void main()
         vec2(transform.pos + vec2(0.0, transform.size.y)),    // Bottom Left
         transform.pos + transform.size                        // Bottom Right
     };
-
+    
     int left = transform.ioffset.x;
     int top = transform.ioffset.y;
     int right = transform.ioffset.x + transform.isize.x;
@@ -36,12 +37,12 @@ void main()
 
     vec2 textureCoords[6] = 
     {
-        vec2(left, top),
-        vec2(left, bottom),
-        vec2(right, top),
-        vec2(right, top),
-        vec2(left, bottom),
-        vec2(right, bottom),
+        vec2(left,  top)    / atlasSize,
+        vec2(left,  bottom) / atlasSize,
+        vec2(right, top)    / atlasSize,
+        vec2(right, top)    / atlasSize,
+        vec2(left,  bottom) / atlasSize,
+        vec2(right, bottom) / atlasSize,
     };
 
     textureCoordsOut = textureCoords[gl_VertexID];
