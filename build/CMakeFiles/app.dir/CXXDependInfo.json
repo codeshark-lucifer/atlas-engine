@@ -1,0 +1,53 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "GNU",
+	"compiler-simulate-id" : "",
+	"config" : "",
+	"cxx-modules" : {},
+	"database-info" : null,
+	"dir-cur-bld" : "D:/Programing Education/atlas - engine/build",
+	"dir-cur-src" : "D:/Programing Education/atlas - engine",
+	"dir-top-bld" : "D:/Programing Education/atlas - engine/build",
+	"dir-top-src" : "D:/Programing Education/atlas - engine",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : 
+	[
+		"D:\\Programing Education\\atlas - engine\\include",
+		"D:\\Programing Education\\atlas - engine\\vendor\\glad\\include",
+		"vendor\\freetype\\include",
+		"D:\\Programing Education\\atlas - engine\\vendor\\freetype\\include"
+	],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "D:/Programing Education/atlas - engine/build/CMakeFiles/app.dir",
+	"sources" : 
+	{
+		"CMakeFiles/app.dir/src/core/global_vars.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "D:/Programing Education/atlas - engine/src/core/global_vars.cpp"
+		},
+		"CMakeFiles/app.dir/src/core/shader.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "D:/Programing Education/atlas - engine/src/core/shader.cpp"
+		},
+		"CMakeFiles/app.dir/src/core/utils.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "D:/Programing Education/atlas - engine/src/core/utils.cpp"
+		},
+		"CMakeFiles/app.dir/src/main.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "D:/Programing Education/atlas - engine/src/main.cpp"
+		},
+		"CMakeFiles/app.dir/src/platform/win32.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "D:/Programing Education/atlas - engine/src/platform/win32.cpp"
+		}
+	}
+}

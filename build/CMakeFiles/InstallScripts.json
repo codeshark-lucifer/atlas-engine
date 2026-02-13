@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"D:/Programing Education/atlas - engine/build/cmake_install.cmake",
+		"D:/Programing Education/atlas - engine/build/vendor/freetype/cmake_install.cmake",
+		"D:/Programing Education/atlas - engine/build/vendor/glad/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

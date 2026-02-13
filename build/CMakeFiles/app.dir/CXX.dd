@@ -1,0 +1,11 @@
+ninja_dyndep_version = 1.0
+build CMakeFiles/app.dir/src/main.cpp.obj: dyndep
+
+build CMakeFiles/app.dir/src/core/utils.cpp.obj: dyndep
+
+build CMakeFiles/app.dir/src/core/shader.cpp.obj: dyndep
+
+build CMakeFiles/app.dir/src/core/global_vars.cpp.obj: dyndep
+
+build CMakeFiles/app.dir/src/platform/win32.cpp.obj: dyndep
+
