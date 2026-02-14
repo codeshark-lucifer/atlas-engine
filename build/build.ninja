@@ -62,6 +62,42 @@ build CMakeFiles/app.dir/src/main.cpp.obj: CXX_COMPILER__app_scanned_ D$:/Progra
   TARGET_SUPPORT_DIR = CMakeFiles\app.dir
   dyndep = CMakeFiles/app.dir/CXX.dd
 
+build CMakeFiles/app.dir/src/core/game.cpp.obj.ddi: CXX_SCAN__app_ D$:/Programing$ Education/atlas$ -$ engine/src/core/game.cpp || cmake_object_order_depends_target_app
+  DEP_FILE = CMakeFiles\app.dir\src\core\game.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\app.dir\src\core\game.cpp.obj.ddi
+  FLAGS = -static-libgcc -static-libstdc++ -static -std=c++20
+  INCLUDES = -I"D:/Programing Education/atlas - engine/include" -I"D:/Programing Education/atlas - engine/vendor/glad/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include"
+  OBJ_FILE = CMakeFiles\app.dir\src\core\game.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = CMakeFiles\app.dir\src\core\game.cpp.obj.ddi.i
+
+build CMakeFiles/app.dir/src/core/game.cpp.obj: CXX_COMPILER__app_scanned_ D$:/Programing$ Education/atlas$ -$ engine/src/core/game.cpp | CMakeFiles/app.dir/src/core/game.cpp.obj.modmap || cmake_object_order_depends_target_app CMakeFiles/app.dir/CXX.dd
+  DEP_FILE = CMakeFiles\app.dir\src\core\game.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = CMakeFiles\app.dir\src\core\game.cpp.obj.modmap
+  FLAGS = -static-libgcc -static-libstdc++ -static -std=c++20
+  INCLUDES = -I"D:/Programing Education/atlas - engine/include" -I"D:/Programing Education/atlas - engine/vendor/glad/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include"
+  OBJECT_DIR = CMakeFiles\app.dir
+  OBJECT_FILE_DIR = CMakeFiles\app.dir\src\core
+  TARGET_SUPPORT_DIR = CMakeFiles\app.dir
+  dyndep = CMakeFiles/app.dir/CXX.dd
+
+build CMakeFiles/app.dir/src/core/gl_renderer.cpp.obj.ddi: CXX_SCAN__app_ D$:/Programing$ Education/atlas$ -$ engine/src/core/gl_renderer.cpp || cmake_object_order_depends_target_app
+  DEP_FILE = CMakeFiles\app.dir\src\core\gl_renderer.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\app.dir\src\core\gl_renderer.cpp.obj.ddi
+  FLAGS = -static-libgcc -static-libstdc++ -static -std=c++20
+  INCLUDES = -I"D:/Programing Education/atlas - engine/include" -I"D:/Programing Education/atlas - engine/vendor/glad/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include"
+  OBJ_FILE = CMakeFiles\app.dir\src\core\gl_renderer.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = CMakeFiles\app.dir\src\core\gl_renderer.cpp.obj.ddi.i
+
+build CMakeFiles/app.dir/src/core/gl_renderer.cpp.obj: CXX_COMPILER__app_scanned_ D$:/Programing$ Education/atlas$ -$ engine/src/core/gl_renderer.cpp | CMakeFiles/app.dir/src/core/gl_renderer.cpp.obj.modmap || cmake_object_order_depends_target_app CMakeFiles/app.dir/CXX.dd
+  DEP_FILE = CMakeFiles\app.dir\src\core\gl_renderer.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = CMakeFiles\app.dir\src\core\gl_renderer.cpp.obj.modmap
+  FLAGS = -static-libgcc -static-libstdc++ -static -std=c++20
+  INCLUDES = -I"D:/Programing Education/atlas - engine/include" -I"D:/Programing Education/atlas - engine/vendor/glad/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include"
+  OBJECT_DIR = CMakeFiles\app.dir
+  OBJECT_FILE_DIR = CMakeFiles\app.dir\src\core
+  TARGET_SUPPORT_DIR = CMakeFiles\app.dir
+  dyndep = CMakeFiles/app.dir/CXX.dd
+
 build CMakeFiles/app.dir/src/core/utils.cpp.obj.ddi: CXX_SCAN__app_ D$:/Programing$ Education/atlas$ -$ engine/src/core/utils.cpp || cmake_object_order_depends_target_app
   DEP_FILE = CMakeFiles\app.dir\src\core\utils.cpp.obj.ddi.d
   DYNDEP_INTERMEDIATE_FILE = CMakeFiles\app.dir\src\core\utils.cpp.obj.ddi
@@ -134,7 +170,7 @@ build CMakeFiles/app.dir/src/platform/win32.cpp.obj: CXX_COMPILER__app_scanned_ 
   TARGET_SUPPORT_DIR = CMakeFiles\app.dir
   dyndep = CMakeFiles/app.dir/CXX.dd
 
-build CMakeFiles/app.dir/CXX.dd | CMakeFiles/app.dir/CXXModules.json CMakeFiles/app.dir/src/main.cpp.obj.modmap CMakeFiles/app.dir/src/core/utils.cpp.obj.modmap CMakeFiles/app.dir/src/core/shader.cpp.obj.modmap CMakeFiles/app.dir/src/core/global_vars.cpp.obj.modmap CMakeFiles/app.dir/src/platform/win32.cpp.obj.modmap: CXX_DYNDEP__app_ CMakeFiles/app.dir/src/main.cpp.obj.ddi CMakeFiles/app.dir/src/core/utils.cpp.obj.ddi CMakeFiles/app.dir/src/core/shader.cpp.obj.ddi CMakeFiles/app.dir/src/core/global_vars.cpp.obj.ddi CMakeFiles/app.dir/src/platform/win32.cpp.obj.ddi | D$:/Programing$ Education/atlas$ -$ engine/build/CMakeFiles/app.dir/CXXDependInfo.json
+build CMakeFiles/app.dir/CXX.dd | CMakeFiles/app.dir/CXXModules.json CMakeFiles/app.dir/src/main.cpp.obj.modmap CMakeFiles/app.dir/src/core/game.cpp.obj.modmap CMakeFiles/app.dir/src/core/gl_renderer.cpp.obj.modmap CMakeFiles/app.dir/src/core/utils.cpp.obj.modmap CMakeFiles/app.dir/src/core/shader.cpp.obj.modmap CMakeFiles/app.dir/src/core/global_vars.cpp.obj.modmap CMakeFiles/app.dir/src/platform/win32.cpp.obj.modmap: CXX_DYNDEP__app_ CMakeFiles/app.dir/src/main.cpp.obj.ddi CMakeFiles/app.dir/src/core/game.cpp.obj.ddi CMakeFiles/app.dir/src/core/gl_renderer.cpp.obj.ddi CMakeFiles/app.dir/src/core/utils.cpp.obj.ddi CMakeFiles/app.dir/src/core/shader.cpp.obj.ddi CMakeFiles/app.dir/src/core/global_vars.cpp.obj.ddi CMakeFiles/app.dir/src/platform/win32.cpp.obj.ddi | D$:/Programing$ Education/atlas$ -$ engine/build/CMakeFiles/app.dir/CXXDependInfo.json
 
 
 # =============================================================================
@@ -144,7 +180,7 @@ build CMakeFiles/app.dir/CXX.dd | CMakeFiles/app.dir/CXXModules.json CMakeFiles/
 #############################################
 # Link the executable bin\app.exe
 
-build bin/app.exe: CXX_EXECUTABLE_LINKER__app_ CMakeFiles/app.dir/src/main.cpp.obj CMakeFiles/app.dir/src/core/utils.cpp.obj CMakeFiles/app.dir/src/core/shader.cpp.obj CMakeFiles/app.dir/src/core/global_vars.cpp.obj CMakeFiles/app.dir/src/platform/win32.cpp.obj | vendor/glad/libglad.a vendor/freetype/libfreetype.a C$:/msys64/mingw64/lib/libbz2.dll.a C$:/msys64/mingw64/lib/libpng.dll.a C$:/msys64/mingw64/lib/libz.dll.a C$:/msys64/mingw64/lib/libbrotlidec.dll.a || vendor/freetype/libfreetype.a vendor/glad/libglad.a
+build bin/app.exe: CXX_EXECUTABLE_LINKER__app_ CMakeFiles/app.dir/src/main.cpp.obj CMakeFiles/app.dir/src/core/game.cpp.obj CMakeFiles/app.dir/src/core/gl_renderer.cpp.obj CMakeFiles/app.dir/src/core/utils.cpp.obj CMakeFiles/app.dir/src/core/shader.cpp.obj CMakeFiles/app.dir/src/core/global_vars.cpp.obj CMakeFiles/app.dir/src/platform/win32.cpp.obj | vendor/glad/libglad.a vendor/freetype/libfreetype.a C$:/msys64/mingw64/lib/libbz2.dll.a C$:/msys64/mingw64/lib/libpng.dll.a C$:/msys64/mingw64/lib/libz.dll.a C$:/msys64/mingw64/lib/libbrotlidec.dll.a || vendor/freetype/libfreetype.a vendor/glad/libglad.a
   FLAGS = -static-libgcc -static-libstdc++ -static
   LINK_FLAGS = -static
   LINK_LIBRARIES = -luser32  -lopengl32  -lgdi32  -ldwmapi  vendor/glad/libglad.a  vendor/freetype/libfreetype.a  -lopengl32  C:/msys64/mingw64/lib/libbz2.dll.a  C:/msys64/mingw64/lib/libpng.dll.a  C:/msys64/mingw64/lib/libz.dll.a  C:/msys64/mingw64/lib/libbrotlidec.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32

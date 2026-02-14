@@ -463,28 +463,14 @@ CMakeFiles\app.dir\src\main.cpp.obj.ddi: \
  C:/msys64/mingw64/include/c++/15.2.0/bits/ranges_algobase.h \
  C:/msys64/mingw64/include/c++/15.2.0/bits/unicode.h \
  C:/msys64/mingw64/include/c++/15.2.0/bits/unicode-data.h \
- D:/Programing\ Education/atlas\ -\ engine/include/render_types.h \
+ D:/Programing\ Education/atlas\ -\ engine/include/game.h \
+ D:/Programing\ Education/atlas\ -\ engine/include/assets.h \
+ D:/Programing\ Education/atlas\ -\ engine/include/interface.h \
+ D:/Programing\ Education/atlas\ -\ engine/include/gl_renderer.hpp \
+ D:/Programing\ Education/atlas\ -\ engine/include/shader.h \
  D:/Programing\ Education/atlas\ -\ engine/vendor/glad/include/glad/glad.h \
  D:/Programing\ Education/atlas\ -\ engine/vendor/glad/include/KHR/khrplatform.h \
- D:/Programing\ Education/atlas\ -\ engine/include/shader.h \
- D:/Programing\ Education/atlas\ -\ engine/include/stb/stb_image.h \
- C:/msys64/mingw64/include/c++/15.2.0/math.h \
- D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/ft2build.h \
- D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/config/ftheader.h \
- D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/freetype.h \
- D:/Programing\ Education/atlas\ -\ engine/build/vendor/freetype/include/freetype/config/ftconfig.h \
- D:/Programing\ Education/atlas\ -\ engine/build/vendor/freetype/include/freetype/config/ftoption.h \
- D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/config/ftstdlib.h \
- C:/msys64/mingw64/include/setjmp.h \
- D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/config/integer-types.h \
- D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/config/public-macros.h \
- D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/config/mac-support.h \
- D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/fttypes.h \
- D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/ftsystem.h \
- D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/ftimage.h \
- D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/fterrors.h \
- D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/ftmoderr.h \
- D:/Programing\ Education/atlas\ -\ engine/vendor/freetype/include/freetype/fterrdef.h \
+ D:/Programing\ Education/atlas\ -\ engine/include/render_types.h \
  C:/msys64/mingw64/include/c++/15.2.0/map \
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_tree.h \
  C:/msys64/mingw64/include/c++/15.2.0/bits/node_handle.h \

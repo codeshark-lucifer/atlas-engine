@@ -24,6 +24,16 @@
 	"module-dir" : "D:/Programing Education/atlas - engine/build/CMakeFiles/app.dir",
 	"sources" : 
 	{
+		"CMakeFiles/app.dir/src/core/game.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "D:/Programing Education/atlas - engine/src/core/game.cpp"
+		},
+		"CMakeFiles/app.dir/src/core/gl_renderer.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "D:/Programing Education/atlas - engine/src/core/gl_renderer.cpp"
+		},
 		"CMakeFiles/app.dir/src/core/global_vars.cpp.obj" : 
 		{
 			"language" : "CXX",

@@ -1,6 +1,10 @@
 ninja_dyndep_version = 1.0
 build CMakeFiles/app.dir/src/main.cpp.obj: dyndep
 
+build CMakeFiles/app.dir/src/core/game.cpp.obj: dyndep
+
+build CMakeFiles/app.dir/src/core/gl_renderer.cpp.obj: dyndep
+
 build CMakeFiles/app.dir/src/core/utils.cpp.obj: dyndep
 
 build CMakeFiles/app.dir/src/core/shader.cpp.obj: dyndep

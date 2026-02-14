@@ -18,6 +18,8 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/vendor/glad)
 
 add_executable(app
     src/main.cpp
+    src/core/game.cpp
+    src/core/gl_renderer.cpp
     src/core/utils.cpp
     src/core/shader.cpp
     src/core/global_vars.cpp

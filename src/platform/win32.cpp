@@ -83,6 +83,8 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
         int h = HIWORD(lParam);
         if (input)
             input->screenSize = {w, h};
+        if (renderData)
+            renderData->OnResize(w, h);
         return 0;
     }
     default:
@@ -170,6 +172,7 @@ Window CreateWindowPlatform(int width, int height, const char *name)
     wc.lpfnWndProc = WndProc;
     wc.hInstance = hInstance;
     wc.lpszClassName = WINDOW_CLASS;
+    wc.hCursor = LoadCursorA(NULL, IDC_ARROW);
     RegisterClassA(&wc);
 
     window = CreateWindowExA(
