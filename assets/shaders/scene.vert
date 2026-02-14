@@ -3,12 +3,14 @@
 struct Transform {
     ivec2 ioffset;
     ivec2 isize;
-
     vec2 pos;
     vec2 size;
+    vec4 color;
 };
 
 layout (location = 0) out vec2 textureCoordsOut;
+layout (location = 1) out vec4 baseColor;
+
 layout (std430, binding = 0) buffer TransformSBO
 {
     Transform transforms[];
@@ -45,6 +47,7 @@ void main()
         vec2(right, bottom) / atlasSize,
     };
 
+    baseColor = transform.color;
     textureCoordsOut = textureCoords[gl_VertexID];
     vec2 vertex = vertices[gl_VertexID];
     gl_Position = projection * vec4(vertex, 0.0, 1.0);

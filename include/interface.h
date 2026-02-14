@@ -3,13 +3,13 @@
 #include <assets.h>
 #include <gl_renderer.hpp>
 
-inline void DrawSprite(SpriteID spriteID, vec2 pos, vec2 size)
+inline void DrawSprite(SpriteID spriteID, vec2 pos, vec2 size, vec3 color = vec3(1.0f))
 {
     Sprite sprite = getSprite(spriteID);
-    PushSprite(sprite.offset, sprite.size, pos, size);
+    PushSprite(sprite.offset, sprite.size, pos, size, color);
 }
 
-inline void DrawUIText(const std::string& text, vec2 pos, float scale)
+inline void DrawUIText(const std::string& text, vec2 pos, float scale, vec3 color = vec3(1.0f))
 {
     float x = pos.x;
     float y = pos.y;
@@ -26,8 +26,13 @@ inline void DrawUIText(const std::string& text, vec2 pos, float scale)
 
         vec2 size = vec2(g.size.x, g.size.y) * scale;
 
-        renderData->uiTransforms.push_back(
-            {g.offset, g.size, vec2(xpos, ypos), size});
+        Transform trans = {};
+        trans.ioffset = g.offset;
+        trans.isize = g.size;
+        trans.pos = vec2(xpos, ypos);
+        trans.size = size;
+        trans.color = vec4(color, 1.0f);
+        renderData->uiTransforms.push_back(trans);
 
         x += (g.advance >> 6) * scale;
     }

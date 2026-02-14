@@ -24,7 +24,7 @@ void Update(float dt)
 
 void InitGame()
 {
-    Player& player = gameState->player;
+    Player &player = gameState->player;
     player.pos = vec2(0.0f);
     player.size = vec2(32.0f);
 }
@@ -34,8 +34,10 @@ void step() {}
 
 void render()
 {
-    Player& player = gameState->player;
+    Player &player = gameState->player;
 
-    DrawSprite(SPRITE_CELESTE, player.pos, player.size);
+    // DrawSprite(SPRITE_CELESTE, player.pos, player.size);
     DrawUIText("Hello World", vec2(100, 200), 1.0f);
+    vec2 mouse = input->mousePosScreen;
+    DrawSprite(SPRITE_DICE, mouse - vec2(16.0f), vec2(32.0f));
 }

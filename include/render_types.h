@@ -1,14 +1,13 @@
 #pragma once
 #include <utils.h>
 
-struct Transform
-{
-    ivec2 ioffset;
-    ivec2 isize;
-
-    vec2 pos;
-    vec2 size;
-};
+struct Transform {
+    ivec2 ioffset; // 8 bytes
+    ivec2 isize;   // 8 bytes
+    vec2 pos;      // 8 bytes
+    vec2 size;     // 8 bytes
+    vec4 color;    // 12 bytes
+}; // Total: 44 bytes
 
 struct Camera2D  {
     vec2 pos;
