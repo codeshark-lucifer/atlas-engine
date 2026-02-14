@@ -9,6 +9,10 @@ inline void DrawSprite(SpriteID spriteID, vec2 pos, vec2 size, vec3 color = vec3
     PushSprite(sprite.offset, sprite.size, pos, size, color);
 }
 
+inline void DrawQuad(Transform trans) {
+    PushSprite(trans.ioffset, trans.isize, trans.pos, trans.size, trans.color.xyz());
+}
+
 inline void DrawUIText(const std::string& text, vec2 pos, float scale, vec3 color = vec3(1.0f))
 {
     float x = pos.x;

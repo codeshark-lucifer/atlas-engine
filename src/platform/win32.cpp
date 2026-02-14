@@ -76,6 +76,16 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
     case WM_XBUTTONUP:
         input->mouseButtons[GET_XBUTTON_WPARAM(wParam) == XBUTTON1 ? 3 : 4] = false;
         break;
+    case WM_ACTIVATE:
+    {
+        if (LOWORD(wParam) == WA_INACTIVE)
+        {
+            ClipCursor(NULL);
+            while (ShowCursor(TRUE) < 0)
+                ;
+        }
+        break;
+    }
 
     case WM_SIZE:
     {
@@ -270,4 +280,51 @@ void SetColorTitleBar(Color background, Color text = {1.0f, 1.0f, 1.0f, 1.0f})
         DWMWA_TEXT_COLOR,
         &textColor,
         sizeof(textColor));
+}
+
+void SetMouseMode(MouseMode mode)
+{
+    if (!window)
+        return;
+
+    input->mouseMode = mode;
+
+    if (mode == MOUSE_VISIBLE)
+    {
+        while (ShowCursor(TRUE) < 0)
+            ;
+        ClipCursor(NULL);
+    }
+    else if (mode == MOUSE_HIDDEN)
+    {
+        while (ShowCursor(FALSE) >= 0)
+            ;
+        ClipCursor(NULL);
+    }
+    else if (mode == MOUSE_LOCKED)
+    {
+        while (ShowCursor(FALSE) >= 0)
+            ;
+
+        RECT rect;
+        GetClientRect(window, &rect);
+
+        POINT ul = {rect.left, rect.top};
+        POINT lr = {rect.right, rect.bottom};
+
+        ClientToScreen(window, &ul);
+        ClientToScreen(window, &lr);
+
+        rect.left = ul.x;
+        rect.top = ul.y;
+        rect.right = lr.x;
+        rect.bottom = lr.y;
+
+        ClipCursor(&rect);
+
+        // Center cursor
+        int centerX = (rect.left + rect.right) / 2;
+        int centerY = (rect.top + rect.bottom) / 2;
+        SetCursorPos(centerX, centerY);
+    }
 }

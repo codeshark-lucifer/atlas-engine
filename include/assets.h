@@ -5,7 +5,8 @@ enum SpriteID
 {
     SPRITE_WHITE,
     SPRITE_DICE,
-    SPRITE_CELESTE
+    SPRITE_CELESTE,
+    SPRITE_REDBALL
 };
 
 struct Sprite
@@ -21,6 +22,7 @@ inline Sprite getSprite(SpriteID spriteID)
     case SPRITE_WHITE:   return {{0, 0}, {1, 1}};
     case SPRITE_DICE:    return {{16, 0}, {16, 16}};
     case SPRITE_CELESTE: return {{112, 0}, {17, 20}};
+    case SPRITE_REDBALL: return {{32, 0}, {16, 16}};
     default:             return getSprite(SPRITE_WHITE);
     }
 }

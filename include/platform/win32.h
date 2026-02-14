@@ -57,3 +57,4 @@ Window CreateWindowPlatform(int width, int height, const char* name);
 void ShutdownPlatform();
 
 void SetColorTitleBar(Color background, Color text);
+void SetMouseMode(MouseMode mode);

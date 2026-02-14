@@ -10,7 +10,6 @@
 #include <utils/color.h>
 #include <utils/keycode.h>
 
-
 #ifdef _WIN32
 #include <sys/stat.h>
 #endif
@@ -23,23 +22,30 @@ typedef Mat3 mat3;
 typedef Mat4 mat4;
 typedef Quat quat;
 
-
 template <typename T>
 using Arr = Array<T>;
 
+enum MouseMode
+{
+    MOUSE_VISIBLE,
+    MOUSE_HIDDEN,
+    MOUSE_LOCKED
+};
+
 struct Input
 {
-    ivec2 screenSize{0,0};
+    ivec2 screenSize{0, 0};
+    MouseMode mouseMode = MOUSE_VISIBLE;
 
     // Keyboard
-    bool keys[256]{ false };       // current frame key states
-    bool keysPrev[256]{ false };   // previous frame states
+    bool keys[256]{false};     // current frame key states
+    bool keysPrev[256]{false}; // previous frame states
 
     // Mouse
-    vec2 mousePosScreen{0,0};      // pixel coordinates
-    vec2 mousePos{0,0};            // maybe world coordinates later
-    bool mouseButtons[5]{ false }; // left, right, middle, extra1, extra2
-    bool mouseButtonsPrev[5]{ false };
+    vec2 mousePosScreen{0, 0};   // pixel coordinates
+    vec2 mousePos{0, 0};         // maybe world coordinates later
+    bool mouseButtons[5]{false}; // left, right, middle, extra1, extra2
+    bool mouseButtonsPrev[5]{false};
 
     // Call every frame to store previous states
     void UpdatePrev()
@@ -49,16 +55,15 @@ struct Input
     }
 
     // Keyboard checks
-    bool IsKeyHeld(int vk) const      { return keys[vk]; }
-    bool IsKeyPressed(int vk) const   { return keys[vk] && !keysPrev[vk]; }
-    bool IsKeyReleased(int vk) const  { return !keys[vk] && keysPrev[vk]; }
+    bool IsKeyHeld(int vk) const { return keys[vk]; }
+    bool IsKeyPressed(int vk) const { return keys[vk] && !keysPrev[vk]; }
+    bool IsKeyReleased(int vk) const { return !keys[vk] && keysPrev[vk]; }
 
     // Mouse checks
-    bool IsMouseHeld(int button) const     { return mouseButtons[button]; }
-    bool IsMousePressed(int button) const  { return mouseButtons[button] && !mouseButtonsPrev[button]; }
+    bool IsMouseHeld(int button) const { return mouseButtons[button]; }
+    bool IsMousePressed(int button) const { return mouseButtons[button] && !mouseButtonsPrev[button]; }
     bool IsMouseReleased(int button) const { return !mouseButtons[button] && mouseButtonsPrev[button]; }
 };
-
 
 struct BumpAllocator
 {
