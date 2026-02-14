@@ -26,10 +26,9 @@ struct GameState
 {
     Player player;
 
-    Array<ivec2> tileCoords;
+    Array<IVec2> tileCoords;
     Tile worldGrid[WORLD_GRID.x][WORLD_GRID.y];
     bool initialized{false};
-    bool gamed{false};
 
     GameState()
     {
