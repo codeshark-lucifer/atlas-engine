@@ -5,7 +5,6 @@
 #include "vector.h"
 #include "phys2d.h"
 #include "logger.h"
-#include "array.h"
 #include "constants.h"
 
 namespace mathf

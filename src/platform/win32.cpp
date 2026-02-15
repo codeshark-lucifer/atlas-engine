@@ -110,7 +110,7 @@ bool ShouldClose()
 
 bool InitPlatform()
 {
-    persistentStorage = MakeAllocator(MB(50));
+    persistentStorage = MakeAllocator(MB(100));
     input = BumpAlloc<Input>(&persistentStorage);
     renderData = BumpAlloc<RenderData>(&persistentStorage);
     if (!gladLoadGL())

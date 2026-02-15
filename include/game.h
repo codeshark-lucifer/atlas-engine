@@ -8,12 +8,17 @@ constexpr float FIXED_DELTATIME = 1.0f / 60.0f;
 constexpr int WORLD_WIDTH = 950;
 constexpr int WORLD_HEIGHT = 540;
 constexpr int TILESIZE = 32;
-constexpr ivec2 WORLD_GRID = {WORLD_WIDTH / TILESIZE, WORLD_HEIGHT / TILESIZE};
+constexpr int GRID_X = (WORLD_WIDTH + TILESIZE - 1) / TILESIZE;
+constexpr int GRID_Y = (WORLD_HEIGHT + TILESIZE - 1) / TILESIZE;
+constexpr ivec2 WORLD_GRID = {GRID_X, GRID_Y};
 
 struct Player
 {
     vec2 pos;
     vec2 size;
+    vec2 vel;      // Added velocity
+    bool isGrounded; // To prevent infinite jumping
+    int renderOptions;
 };
 
 struct Tile
@@ -34,7 +39,9 @@ struct GameState
     {
         for (int y = 0; y < WORLD_GRID.y; y++)
             for (int x = 0; x < WORLD_GRID.x; x++)
-                worldGrid[x][y] = Tile{};
+                worldGrid[x][y] = Tile{0, false};
+
+        tileCoords.resize(21);
     }
 };
 

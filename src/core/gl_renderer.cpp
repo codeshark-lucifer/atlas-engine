@@ -163,61 +163,44 @@ bool glInit(BumpAllocator *persistentStorage)
 void glRender()
 {
     mat4 projection = renderData->camera.matrix();
+    glViewport(0, 0, input->screenSize.x, input->screenSize.y);
+    glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
 
     gl.shader->Use();
     gl.shader->SetUniform("projection", projection);
+    glBindVertexArray(gl.vao);
 
-    glViewport(0, 0, input->screenSize.x, input->screenSize.y);
-    glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-    // SPRITES
+    // 1. Render Sprites
     if (!renderData->transforms.empty())
     {
-        gl.shader->SetUniform("atlasSize",
-                              vec2(gl.textureSize.x,
-                                   gl.textureSize.y));
-        gl.shader->SetUniform("isFont", false);
+        gl.shader->SetUniform("atlasSize", vec2(gl.textureSize.x, gl.textureSize.y));
+        gl.shader->SetUniform("isFont", 0); // Use int for bool uniforms often safer
 
-        glBindVertexArray(gl.vao);
         glBindBuffer(GL_SHADER_STORAGE_BUFFER, gl.transSSBO);
-
-        glBufferData(GL_SHADER_STORAGE_BUFFER,
-                     sizeof(Transform) *
-                         renderData->transforms.size(),
-                     renderData->transforms.data(),
-                     GL_DYNAMIC_DRAW);
+        glBufferData(GL_SHADER_STORAGE_BUFFER, sizeof(Transform) * renderData->transforms.size(), renderData->transforms.data(), GL_DYNAMIC_DRAW);
+        glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 0, gl.transSSBO);
 
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, gl.textureAtlas);
 
-        glDrawArraysInstanced(GL_TRIANGLES, 0, 6,
-                              renderData->transforms.size());
+        glDrawArraysInstanced(GL_TRIANGLES, 0, 6, (GLsizei)renderData->transforms.size());
     }
 
-    // TEXT
+    // 2. Render Text
     if (!renderData->uiTransforms.empty())
     {
-        gl.shader->SetUniform("atlasSize",
-                              vec2(font.atlasWidth,
-                                   font.atlasHeight));
-        gl.shader->SetUniform("isFont", true);
-
-        glBindVertexArray(gl.vao); // <-- ADD THIS
+        gl.shader->SetUniform("atlasSize", vec2(font.atlasWidth, font.atlasHeight));
+        gl.shader->SetUniform("isFont", 1);
 
         glBindBuffer(GL_SHADER_STORAGE_BUFFER, gl.transSSBO);
-
-        glBufferData(GL_SHADER_STORAGE_BUFFER,
-                     sizeof(Transform) *
-                         renderData->uiTransforms.size(),
-                     renderData->uiTransforms.data(),
-                     GL_DYNAMIC_DRAW);
+        glBufferData(GL_SHADER_STORAGE_BUFFER, sizeof(Transform) * renderData->uiTransforms.size(), renderData->uiTransforms.data(), GL_DYNAMIC_DRAW);
+        glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 0, gl.transSSBO);
 
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, font.texture);
 
-        glDrawArraysInstanced(GL_TRIANGLES, 0, 6,
-                              renderData->uiTransforms.size());
+        glDrawArraysInstanced(GL_TRIANGLES, 0, 6, (GLsizei)renderData->uiTransforms.size());
     }
 
     renderData->transforms.clear();

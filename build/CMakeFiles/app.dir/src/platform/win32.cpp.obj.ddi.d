@@ -266,10 +266,6 @@ CMakeFiles\app.dir\src\platform\win32.cpp.obj.ddi: \
  C:/msys64/mingw64/include/c++/15.2.0/cstddef \
  C:/msys64/mingw64/include/c++/15.2.0/bits/version.h \
  D:/Programing\ Education/atlas\ -\ engine/include/utils/dtype.h \
- D:/Programing\ Education/atlas\ -\ engine/include/utils/array.h \
- C:/msys64/mingw64/include/c++/15.2.0/cstring \
- C:/msys64/mingw64/include/c++/15.2.0/cassert \
- C:/msys64/mingw64/include/assert.h \
  D:/Programing\ Education/atlas\ -\ engine/include/utils/macros.h \
  D:/Programing\ Education/atlas\ -\ engine/include/utils/mathf.h \
  D:/Programing\ Education/atlas\ -\ engine/include/utils/color.h \
@@ -318,6 +314,7 @@ CMakeFiles\app.dir\src\platform\win32.cpp.obj.ddi: \
  C:/msys64/mingw64/include/c++/15.2.0/tr1/poly_laguerre.tcc \
  C:/msys64/mingw64/include/c++/15.2.0/tr1/riemann_zeta.tcc \
  D:/Programing\ Education/atlas\ -\ engine/include/utils/matrix.h \
+ C:/msys64/mingw64/include/c++/15.2.0/cstring \
  D:/Programing\ Education/atlas\ -\ engine/include/utils/Quat.h \
  D:/Programing\ Education/atlas\ -\ engine/include/utils/phys2d.h \
  D:/Programing\ Education/atlas\ -\ engine/include/utils/logger.h \
@@ -331,6 +328,33 @@ CMakeFiles\app.dir\src\platform\win32.cpp.obj.ddi: \
  C:/msys64/mingw64/include/_mingw_stat64.h \
  D:/Programing\ Education/atlas\ -\ engine/include/utils/constants.h \
  D:/Programing\ Education/atlas\ -\ engine/include/utils/keycode.h \
+ C:/msys64/mingw64/include/c++/15.2.0/vector \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/allocator.h \
+ C:/msys64/mingw64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/new_allocator.h \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/memoryfwd.h \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/stl_uninitialized.h \
+ C:/msys64/mingw64/include/c++/15.2.0/ext/alloc_traits.h \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/alloc_traits.h \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/stl_vector.h \
+ C:/msys64/mingw64/include/c++/15.2.0/initializer_list \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/ranges_base.h \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/max_size_type.h \
+ C:/msys64/mingw64/include/c++/15.2.0/numbers \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/stl_bvector.h \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/functional_hash.h \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/hash_bytes.h \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/refwrap.h \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/invoke.h \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/stl_function.h \
+ C:/msys64/mingw64/include/c++/15.2.0/backward/binders.h \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/range_access.h \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/vector.tcc \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/memory_resource.h \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/uses_allocator.h \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/uses_allocator_args.h \
+ C:/msys64/mingw64/include/c++/15.2.0/tuple \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/ranges_util.h \
  C:/msys64/mingw64/include/c++/15.2.0/chrono \
  C:/msys64/mingw64/include/c++/15.2.0/bits/chrono.h \
  C:/msys64/mingw64/include/c++/15.2.0/ratio \
@@ -345,7 +369,6 @@ CMakeFiles\app.dir\src\platform\win32.cpp.obj.ddi: \
  C:/msys64/mingw64/include/c++/15.2.0/ios \
  C:/msys64/mingw64/include/c++/15.2.0/iosfwd \
  C:/msys64/mingw64/include/c++/15.2.0/bits/stringfwd.h \
- C:/msys64/mingw64/include/c++/15.2.0/bits/memoryfwd.h \
  C:/msys64/mingw64/include/c++/15.2.0/bits/postypes.h \
  C:/msys64/mingw64/include/c++/15.2.0/cwchar \
  C:/msys64/mingw64/include/wchar.h \
@@ -354,7 +377,6 @@ CMakeFiles\app.dir\src\platform\win32.cpp.obj.ddi: \
  C:/msys64/mingw64/include/c++/15.2.0/bits/exception_ptr.h \
  C:/msys64/mingw64/include/c++/15.2.0/bits/cxxabi_init_exception.h \
  C:/msys64/mingw64/include/c++/15.2.0/typeinfo \
- C:/msys64/mingw64/include/c++/15.2.0/bits/hash_bytes.h \
  C:/msys64/mingw64/include/c++/15.2.0/bits/nested_exception.h \
  C:/msys64/mingw64/include/c++/15.2.0/bits/char_traits.h \
  C:/msys64/mingw64/include/c++/15.2.0/bits/localefwd.h \
@@ -375,36 +397,16 @@ CMakeFiles\app.dir\src\platform\win32.cpp.obj.ddi: \
  C:/msys64/mingw64/include/c++/15.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
  C:/msys64/mingw64/include/c++/15.2.0/bits/locale_classes.h \
  C:/msys64/mingw64/include/c++/15.2.0/string \
- C:/msys64/mingw64/include/c++/15.2.0/bits/allocator.h \
- C:/msys64/mingw64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
- C:/msys64/mingw64/include/c++/15.2.0/bits/new_allocator.h \
  C:/msys64/mingw64/include/c++/15.2.0/bits/ostream_insert.h \
  C:/msys64/mingw64/include/c++/15.2.0/bits/cxxabi_forced.h \
- C:/msys64/mingw64/include/c++/15.2.0/bits/stl_function.h \
- C:/msys64/mingw64/include/c++/15.2.0/backward/binders.h \
- C:/msys64/mingw64/include/c++/15.2.0/bits/refwrap.h \
- C:/msys64/mingw64/include/c++/15.2.0/bits/invoke.h \
- C:/msys64/mingw64/include/c++/15.2.0/bits/range_access.h \
- C:/msys64/mingw64/include/c++/15.2.0/initializer_list \
  C:/msys64/mingw64/include/c++/15.2.0/bits/basic_string.h \
- C:/msys64/mingw64/include/c++/15.2.0/ext/alloc_traits.h \
- C:/msys64/mingw64/include/c++/15.2.0/bits/alloc_traits.h \
  C:/msys64/mingw64/include/c++/15.2.0/string_view \
- C:/msys64/mingw64/include/c++/15.2.0/bits/functional_hash.h \
- C:/msys64/mingw64/include/c++/15.2.0/bits/ranges_base.h \
- C:/msys64/mingw64/include/c++/15.2.0/bits/max_size_type.h \
- C:/msys64/mingw64/include/c++/15.2.0/numbers \
  C:/msys64/mingw64/include/c++/15.2.0/bits/string_view.tcc \
  C:/msys64/mingw64/include/c++/15.2.0/ext/string_conversions.h \
  C:/msys64/mingw64/include/c++/15.2.0/cstdio \
  C:/msys64/mingw64/include/c++/15.2.0/cerrno \
  C:/msys64/mingw64/include/c++/15.2.0/bits/charconv.h \
  C:/msys64/mingw64/include/c++/15.2.0/bits/basic_string.tcc \
- C:/msys64/mingw64/include/c++/15.2.0/bits/memory_resource.h \
- C:/msys64/mingw64/include/c++/15.2.0/bits/uses_allocator.h \
- C:/msys64/mingw64/include/c++/15.2.0/bits/uses_allocator_args.h \
- C:/msys64/mingw64/include/c++/15.2.0/tuple \
- C:/msys64/mingw64/include/c++/15.2.0/bits/ranges_util.h \
  C:/msys64/mingw64/include/c++/15.2.0/bits/locale_classes.tcc \
  C:/msys64/mingw64/include/c++/15.2.0/system_error \
  C:/msys64/mingw64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
@@ -425,11 +427,6 @@ CMakeFiles\app.dir\src\platform\win32.cpp.obj.ddi: \
  C:/msys64/mingw64/include/c++/15.2.0/bits/ostream.tcc \
  C:/msys64/mingw64/include/c++/15.2.0/bits/istream.tcc \
  C:/msys64/mingw64/include/c++/15.2.0/bits/sstream.tcc \
- C:/msys64/mingw64/include/c++/15.2.0/vector \
- C:/msys64/mingw64/include/c++/15.2.0/bits/stl_uninitialized.h \
- C:/msys64/mingw64/include/c++/15.2.0/bits/stl_vector.h \
- C:/msys64/mingw64/include/c++/15.2.0/bits/stl_bvector.h \
- C:/msys64/mingw64/include/c++/15.2.0/bits/vector.tcc \
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_algo.h \
  C:/msys64/mingw64/include/c++/15.2.0/bits/algorithmfwd.h \
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_heap.h \

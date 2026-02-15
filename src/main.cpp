@@ -1,7 +1,7 @@
 #include <platform/win32.h>
 #include <game.h>
 
-GameState* gameState = nullptr;
+GameState *gameState = nullptr;
 int main()
 {
     InitPlatform();

@@ -4,7 +4,6 @@
 #include <cstddef>
 #include <utils/dtype.h>
 
-#include <utils/array.h>
 #include <utils/macros.h>
 #include <utils/mathf.h>
 #include <utils/color.h>
@@ -13,6 +12,8 @@
 #ifdef _WIN32
 #include <sys/stat.h>
 #endif
+
+#include <vector>
 
 typedef IVec2 ivec2;
 typedef Vec2 vec2;
@@ -23,7 +24,7 @@ typedef Mat4 mat4;
 typedef Quat quat;
 
 template <typename T>
-using Arr = Array<T>;
+using Array = std::vector<T>;
 
 enum MouseMode
 {
