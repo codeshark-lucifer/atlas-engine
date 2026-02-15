@@ -5,24 +5,76 @@ enum SpriteID
 {
     SPRITE_WHITE,
     SPRITE_DICE,
+    SPRITE_REDBALL,
+
     SPRITE_CELESTE,
-    SPRITE_REDBALL
+    SPRITE_CELESTE_RUN,
+    SPRITE_CELESTE_JUMP,
+
+    SPRITE_COUNT
 };
 
 struct Sprite
 {
     ivec2 offset;
     ivec2 size;
+    int frameCount;
 };
 
 inline Sprite getSprite(SpriteID spriteID)
 {
+    Sprite sprite = {};
+    sprite.frameCount = 1;
+
     switch (spriteID)
     {
-    case SPRITE_WHITE:   return {{0, 0}, {1, 1}};
-    case SPRITE_DICE:    return {{16, 0}, {16, 16}};
-    case SPRITE_CELESTE: return {{112, 0}, {17, 20}};
-    case SPRITE_REDBALL: return {{32, 0}, {16, 16}};
-    default:             return getSprite(SPRITE_WHITE);
+    case SPRITE_WHITE:
+    {
+        sprite.offset = {0, 0};
+        sprite.size = {1, 1};
+        break;
     }
+
+    case SPRITE_DICE:
+    {
+        sprite.offset = {16, 0};
+        sprite.size = {16, 16};
+        break;
+    }
+
+    case SPRITE_CELESTE:
+    {
+      sprite.offset = {128, 0};
+      sprite.size = {32, 32};
+      sprite.frameCount = 6;
+      break;
+    }
+
+    case SPRITE_CELESTE_RUN:
+    {
+      sprite.offset = {128, 32};
+      sprite.size = {32, 32};
+      sprite.frameCount = 6;
+      break;
+    }
+
+    case SPRITE_CELESTE_JUMP:
+    {
+      sprite.offset = {128, 48};
+      sprite.size = {32, 32};
+      sprite.frameCount = 4;
+      break;
+    }
+
+    case SPRITE_REDBALL:
+    {
+        sprite.offset = {32, 0};
+        sprite.size = {16, 16};
+        break;
+    }
+    default:
+        return getSprite(SPRITE_WHITE);
+    }
+
+    return sprite;
 }

@@ -109,13 +109,24 @@ void InitGame()
     UpdateTile();
 
     Player &player = gameState->player;
+    player.animationSprites[PLAYER_ANIM_IDLE] = SPRITE_CELESTE;
+    player.animationSprites[PLAYER_ANIM_RUN] = SPRITE_CELESTE_RUN;
+    player.animationSprites[PLAYER_ANIM_JUMP] = SPRITE_CELESTE_JUMP;
+
     player.pos = vec2(centerX * TILESIZE, (centerY - 2) * TILESIZE);
-    player.size = vec2(32.0f);
+    player.size = vec2(34.0f, 40.0f); // Celeste is 17x20, so 2x scale works well
     player.vel = vec2(0, 0);
+    player.animationState = PLAYER_ANIM_IDLE;
 }
 
 void simulate()
 {
+    Player &player = gameState->player;
+    PlayerAnimState lastState = player.animationState;
+
+    // Default state
+    player.animationState = PLAYER_ANIM_IDLE;
+
     if (input->IsKeyPressed(KEY_ESCAPE))
     {
         ishidden = false;
@@ -154,7 +165,6 @@ void simulate()
         }
     }
 
-    Player &player = gameState->player;
     float moveSpeed = 200.0f;
     float jumpForce = -400.0f;
 
@@ -168,13 +178,34 @@ void simulate()
     if (input->IsKeyHeld(KEY_A))
     {
         player.vel.x = -moveSpeed;
-        player.renderOptions |= RENDERING_OPTION_FLIP_X; // Turn ON flip
+        player.renderOptions |= RENDERING_OPTION_FLIP_X;
+        player.animationState = PLAYER_ANIM_RUN;
     }
-    else if (input->IsKeyHeld(KEY_D)) // Use 'else if' to prevent flickering
+    else if (input->IsKeyHeld(KEY_D))
     {
         player.vel.x = moveSpeed;
-        player.renderOptions &= ~RENDERING_OPTION_FLIP_X; // Turn OFF flip
+        player.renderOptions &= ~RENDERING_OPTION_FLIP_X;
+        player.animationState = PLAYER_ANIM_RUN;
     }
+
+    if (!player.isGrounded)
+    {
+        player.animationState = PLAYER_ANIM_JUMP;
+    }
+    if (player.animationState != lastState)
+    {
+        player.animtime = 0.0f;
+    }
+    // 1. Get the current sprite to know the frame count
+    SpriteID currentID = player.animationSprites[player.animationState];
+    Sprite sprite = getSprite(currentID);
+
+    // 2. Increment by delta time, not a whole integer
+    player.animtime += FIXED_DELTATIME;
+
+    // 3. Reset logic (Optional here, as animate() also handles wrapping)
+    if (player.animtime >= 0.6f) // 0.6f is your duration
+        player.animtime = 0.0f;
 }
 
 void step()
@@ -240,8 +271,50 @@ void step()
         }
     }
 }
-
+void DrawGrid();
 void render()
+{
+    DrawGrid();
+
+    {
+        Player &player = gameState->player;
+        SpriteID currentID = player.animationSprites[player.animationState];
+        Sprite sprite = getSprite(currentID);
+
+        // Use a consistent duration (e.g., 0.5 seconds for a full loop)
+        float animationLoopDuration = 0.5f;
+        int anim_x = animate(&player.animtime, sprite.frameCount, animationLoopDuration);
+
+        DrawSprite(sprite, player.pos, player.size, {anim_x, player.renderOptions, 0.0f});
+    }
+    vec2 mouse = input->mousePosScreen;
+    DrawSprite(SPRITE_REDBALL, mouse - vec2(4.0f), vec2(8.0f));
+
+    DrawUIText("Game", vec2(10.0f), 24.0f);
+}
+
+// Update Entry
+void Update(float dt)
+{
+    if (!gameState->initialized)
+    {
+        InitGame();
+        gameState->initialized = true;
+    }
+
+    fixedTime += dt;
+
+    while (fixedTime >= FIXED_DELTATIME)
+    {
+        simulate();
+        step();
+        fixedTime -= FIXED_DELTATIME;
+    }
+
+    render();
+}
+
+void DrawGrid()
 {
     for (int y = 0; y < WORLD_GRID.y; y++)
     {
@@ -269,41 +342,4 @@ void render()
             }
         }
     }
-
-    Player &player = gameState->player;
-    {
-        Sprite sprite = getSprite(SPRITE_CELESTE);
-        Transform trans = {};
-        trans.ioffset = sprite.offset;
-        trans.isize = sprite.size;
-        trans.color = vec4(1.0f);
-        trans.size = player.size;
-        trans.pos = player.pos;
-        trans.renderOptions = player.renderOptions;
-        DrawQuad(trans);
-    }
-
-    vec2 mouse = input->mousePosScreen;
-    DrawSprite(SPRITE_REDBALL, mouse - vec2(4.0f), vec2(8.0f));
-}
-
-// Update Entry
-void Update(float dt)
-{
-    if (!gameState->initialized)
-    {
-        InitGame();
-        gameState->initialized = true;
-    }
-
-    fixedTime += dt;
-
-    while (fixedTime >= FIXED_DELTATIME)
-    {
-        simulate();
-        step();
-        fixedTime -= FIXED_DELTATIME;
-    }
-
-    render();
 }

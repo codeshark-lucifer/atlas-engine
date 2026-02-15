@@ -5,6 +5,13 @@ constexpr int RENDERING_OPTION_FLIP_X = BIT(0);
 constexpr int RENDERING_OPTION_FLIP_Y = BIT(1);
 constexpr int RENDERING_OPTION_FONT = BIT(2);
 
+struct DrawData
+{
+  int anim_x;
+  int renderOptions;
+  float layer = 0.0f;
+};
+
 struct alignas(16) Transform
 {
     ivec2 ioffset;        // 8 bytes

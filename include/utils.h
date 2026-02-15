@@ -88,3 +88,36 @@ T *BumpAlloc(BumpAllocator *alloc, Args &&...args)
 
     return new (memory) T(std::forward<Args>(args)...);
 }
+
+inline int animate(float* time, int frameCount, float duration = 1.0f)
+{
+  while(*time > duration)
+  {
+    *time -= duration;
+  }
+  
+  int animationIdx = (int)((*time / duration) * frameCount);
+  
+  // Clamp
+  if (animationIdx >= frameCount)
+  {
+    animationIdx = frameCount - 1;
+  }
+  
+  return animationIdx;
+}
+
+inline float approach(float current, float target, float amount)
+{
+    if (current < target)
+    {
+        current += amount;
+        if (current > target) return target;
+    }
+    else
+    {
+        current -= amount;
+        if (current < target) return target;
+    }
+    return current;
+}

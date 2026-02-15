@@ -34,5 +34,5 @@ extern Font font;
 bool glInit(BumpAllocator* persistentStorage);
 void glRender();
 
-void PushSprite(ivec2 offset, ivec2 size, vec2 pos, vec2 renderSize, vec3 color);
+void PushSprite(ivec2 offset, ivec2 size, vec2 pos, vec2 renderSize, vec3 color, int renderOptions);
 void DrawUIText(const std::string& text, vec2 pos, float scale, vec3 color);

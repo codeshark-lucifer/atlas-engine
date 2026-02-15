@@ -6,14 +6,25 @@
 inline void DrawSprite(SpriteID spriteID, vec2 pos, vec2 size, vec3 color = vec3(1.0f))
 {
     Sprite sprite = getSprite(spriteID);
-    PushSprite(sprite.offset, sprite.size, pos, size, color);
+    PushSprite(sprite.offset, sprite.size, pos, size, color, 0);
 }
 
-inline void DrawQuad(Transform trans) {
-    PushSprite(trans.ioffset, trans.isize, trans.pos, trans.size, trans.color.xyz());
+inline void DrawSprite(Sprite sprite, vec2 pos, vec2 size, DrawData data)
+{
+    // Calculate horizontal frame offset: start_x + (frame_index * frame_width)
+    ivec2 animatedOffset = sprite.offset;
+    animatedOffset.x += (data.anim_x * sprite.size.x);
+    
+    // Pass the NEW animatedOffset, not sprite.offset
+    PushSprite(animatedOffset, sprite.size, pos, size, vec3(1.0f), data.renderOptions);
 }
 
-inline void DrawUIText(const std::string& text, vec2 pos, float scale, vec3 color = vec3(1.0f))
+inline void DrawQuad(Transform trans)
+{
+    PushSprite(trans.ioffset, trans.isize, trans.pos, trans.size, trans.color.xyz(), trans.renderOptions);
+}
+
+inline void DrawUIText(const std::string &text, vec2 pos, float scale, vec3 color = vec3(1.0f))
 {
     float x = pos.x;
     float y = pos.y;
@@ -23,7 +34,7 @@ inline void DrawUIText(const std::string& text, vec2 pos, float scale, vec3 colo
         if (font.glyphs.find(c) == font.glyphs.end())
             continue;
 
-        Glyph& g = font.glyphs[c];
+        Glyph &g = font.glyphs[c];
 
         float xpos = x + g.bearing.x * scale;
         float ypos = y - g.bearing.y * scale;

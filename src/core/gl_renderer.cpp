@@ -16,7 +16,7 @@ Font font;
 extern RenderData *renderData;
 extern Input *input;
 
-void PushSprite(ivec2 offset, ivec2 size, vec2 pos, vec2 renderSize, vec3 color)
+void PushSprite(ivec2 offset, ivec2 size, vec2 pos, vec2 renderSize, vec3 color, int renderOptions)
 {
     Transform trans{};
     trans.ioffset = offset;
@@ -24,6 +24,7 @@ void PushSprite(ivec2 offset, ivec2 size, vec2 pos, vec2 renderSize, vec3 color)
     trans.pos = pos;
     trans.size = renderSize;
     trans.color = vec4(color, 1.0f);
+    trans.renderOptions = renderOptions;
 
     renderData->transforms.push_back(trans);
 }
