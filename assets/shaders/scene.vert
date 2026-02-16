@@ -6,7 +6,8 @@ struct Transform {
     vec2 pos;
     vec2 size;
     vec4 color;
-    int renderOptions; // Matches the C++ struct position
+    int renderOptions; 
+    float layer;
 };
 
 // Define the same flags as C++
@@ -66,5 +67,5 @@ void main()
 
     baseColor = transform.color;
     textureCoordsOut = textureCoords[gl_VertexID];
-    gl_Position = projection * vec4(vertices[gl_VertexID], 0.0, 1.0);
+    gl_Position = projection * vec4(vertices[gl_VertexID], transform.layer, 1.0);
 }

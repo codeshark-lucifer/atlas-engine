@@ -59,6 +59,8 @@ build CMakeFiles/app.dir/src/main.cpp.obj: CXX_COMPILER__app_scanned_ D$:/Progra
   INCLUDES = -I"D:/Programing Education/atlas - engine/include" -I"D:/Programing Education/atlas - engine/vendor/glad/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include"
   OBJECT_DIR = CMakeFiles\app.dir
   OBJECT_FILE_DIR = CMakeFiles\app.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\app.dir\
+  TARGET_PDB = bin\app.pdb
   TARGET_SUPPORT_DIR = CMakeFiles\app.dir
   dyndep = CMakeFiles/app.dir/CXX.dd
 
@@ -77,6 +79,8 @@ build CMakeFiles/app.dir/src/core/game.cpp.obj: CXX_COMPILER__app_scanned_ D$:/P
   INCLUDES = -I"D:/Programing Education/atlas - engine/include" -I"D:/Programing Education/atlas - engine/vendor/glad/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include"
   OBJECT_DIR = CMakeFiles\app.dir
   OBJECT_FILE_DIR = CMakeFiles\app.dir\src\core
+  TARGET_COMPILE_PDB = CMakeFiles\app.dir\
+  TARGET_PDB = bin\app.pdb
   TARGET_SUPPORT_DIR = CMakeFiles\app.dir
   dyndep = CMakeFiles/app.dir/CXX.dd
 
@@ -95,6 +99,8 @@ build CMakeFiles/app.dir/src/core/gl_renderer.cpp.obj: CXX_COMPILER__app_scanned
   INCLUDES = -I"D:/Programing Education/atlas - engine/include" -I"D:/Programing Education/atlas - engine/vendor/glad/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include"
   OBJECT_DIR = CMakeFiles\app.dir
   OBJECT_FILE_DIR = CMakeFiles\app.dir\src\core
+  TARGET_COMPILE_PDB = CMakeFiles\app.dir\
+  TARGET_PDB = bin\app.pdb
   TARGET_SUPPORT_DIR = CMakeFiles\app.dir
   dyndep = CMakeFiles/app.dir/CXX.dd
 
@@ -113,6 +119,8 @@ build CMakeFiles/app.dir/src/core/utils.cpp.obj: CXX_COMPILER__app_scanned_ D$:/
   INCLUDES = -I"D:/Programing Education/atlas - engine/include" -I"D:/Programing Education/atlas - engine/vendor/glad/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include"
   OBJECT_DIR = CMakeFiles\app.dir
   OBJECT_FILE_DIR = CMakeFiles\app.dir\src\core
+  TARGET_COMPILE_PDB = CMakeFiles\app.dir\
+  TARGET_PDB = bin\app.pdb
   TARGET_SUPPORT_DIR = CMakeFiles\app.dir
   dyndep = CMakeFiles/app.dir/CXX.dd
 
@@ -131,6 +139,8 @@ build CMakeFiles/app.dir/src/core/shader.cpp.obj: CXX_COMPILER__app_scanned_ D$:
   INCLUDES = -I"D:/Programing Education/atlas - engine/include" -I"D:/Programing Education/atlas - engine/vendor/glad/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include"
   OBJECT_DIR = CMakeFiles\app.dir
   OBJECT_FILE_DIR = CMakeFiles\app.dir\src\core
+  TARGET_COMPILE_PDB = CMakeFiles\app.dir\
+  TARGET_PDB = bin\app.pdb
   TARGET_SUPPORT_DIR = CMakeFiles\app.dir
   dyndep = CMakeFiles/app.dir/CXX.dd
 
@@ -149,6 +159,8 @@ build CMakeFiles/app.dir/src/core/global_vars.cpp.obj: CXX_COMPILER__app_scanned
   INCLUDES = -I"D:/Programing Education/atlas - engine/include" -I"D:/Programing Education/atlas - engine/vendor/glad/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include"
   OBJECT_DIR = CMakeFiles\app.dir
   OBJECT_FILE_DIR = CMakeFiles\app.dir\src\core
+  TARGET_COMPILE_PDB = CMakeFiles\app.dir\
+  TARGET_PDB = bin\app.pdb
   TARGET_SUPPORT_DIR = CMakeFiles\app.dir
   dyndep = CMakeFiles/app.dir/CXX.dd
 
@@ -167,6 +179,8 @@ build CMakeFiles/app.dir/src/platform/win32.cpp.obj: CXX_COMPILER__app_scanned_ 
   INCLUDES = -I"D:/Programing Education/atlas - engine/include" -I"D:/Programing Education/atlas - engine/vendor/glad/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include"
   OBJECT_DIR = CMakeFiles\app.dir
   OBJECT_FILE_DIR = CMakeFiles\app.dir\src\platform
+  TARGET_COMPILE_PDB = CMakeFiles\app.dir\
+  TARGET_PDB = bin\app.pdb
   TARGET_SUPPORT_DIR = CMakeFiles\app.dir
   dyndep = CMakeFiles/app.dir/CXX.dd
 
@@ -187,9 +201,10 @@ build bin/app.exe: CXX_EXECUTABLE_LINKER__app_ CMakeFiles/app.dir/src/main.cpp.o
   OBJECT_DIR = CMakeFiles\app.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\app.dir\
   TARGET_FILE = bin\app.exe
   TARGET_IMPLIB = libapp.dll.a
-  TARGET_PDB = app.exe.dbg
+  TARGET_PDB = bin\app.pdb
   TARGET_SUPPORT_DIR = CMakeFiles\app.dir
 
 
@@ -301,6 +316,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/autofit/autofit.c.obj: C_COMPI
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\autofit
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftbase.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/base/ftbase.c || cmake_object_order_depends_target_freetype
@@ -309,6 +326,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftbase.c.obj: C_COMPILER_
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\base
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftbbox.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/base/ftbbox.c || cmake_object_order_depends_target_freetype
@@ -317,6 +336,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftbbox.c.obj: C_COMPILER_
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\base
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftbdf.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/base/ftbdf.c || cmake_object_order_depends_target_freetype
@@ -325,6 +346,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftbdf.c.obj: C_COMPILER__
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\base
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftbitmap.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/base/ftbitmap.c || cmake_object_order_depends_target_freetype
@@ -333,6 +356,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftbitmap.c.obj: C_COMPILE
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\base
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftcid.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/base/ftcid.c || cmake_object_order_depends_target_freetype
@@ -341,6 +366,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftcid.c.obj: C_COMPILER__
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\base
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftfstype.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/base/ftfstype.c || cmake_object_order_depends_target_freetype
@@ -349,6 +376,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftfstype.c.obj: C_COMPILE
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\base
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftgasp.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/base/ftgasp.c || cmake_object_order_depends_target_freetype
@@ -357,6 +386,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftgasp.c.obj: C_COMPILER_
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\base
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftglyph.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/base/ftglyph.c || cmake_object_order_depends_target_freetype
@@ -365,6 +396,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftglyph.c.obj: C_COMPILER
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\base
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftgxval.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/base/ftgxval.c || cmake_object_order_depends_target_freetype
@@ -373,6 +406,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftgxval.c.obj: C_COMPILER
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\base
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftinit.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/base/ftinit.c || cmake_object_order_depends_target_freetype
@@ -381,6 +416,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftinit.c.obj: C_COMPILER_
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\base
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftmm.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/base/ftmm.c || cmake_object_order_depends_target_freetype
@@ -389,6 +426,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftmm.c.obj: C_COMPILER__f
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\base
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftotval.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/base/ftotval.c || cmake_object_order_depends_target_freetype
@@ -397,6 +436,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftotval.c.obj: C_COMPILER
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\base
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftpatent.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/base/ftpatent.c || cmake_object_order_depends_target_freetype
@@ -405,6 +446,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftpatent.c.obj: C_COMPILE
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\base
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftpfr.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/base/ftpfr.c || cmake_object_order_depends_target_freetype
@@ -413,6 +456,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftpfr.c.obj: C_COMPILER__
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\base
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftstroke.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/base/ftstroke.c || cmake_object_order_depends_target_freetype
@@ -421,6 +466,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftstroke.c.obj: C_COMPILE
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\base
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftsynth.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/base/ftsynth.c || cmake_object_order_depends_target_freetype
@@ -429,6 +476,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftsynth.c.obj: C_COMPILER
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\base
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/base/fttype1.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/base/fttype1.c || cmake_object_order_depends_target_freetype
@@ -437,6 +486,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/base/fttype1.c.obj: C_COMPILER
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\base
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftwinfnt.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/base/ftwinfnt.c || cmake_object_order_depends_target_freetype
@@ -445,6 +496,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftwinfnt.c.obj: C_COMPILE
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\base
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/bdf/bdf.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/bdf/bdf.c || cmake_object_order_depends_target_freetype
@@ -453,6 +506,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/bdf/bdf.c.obj: C_COMPILER__fre
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\bdf
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/bzip2/ftbzip2.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/bzip2/ftbzip2.c || cmake_object_order_depends_target_freetype
@@ -461,6 +516,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/bzip2/ftbzip2.c.obj: C_COMPILE
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\bzip2
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/cache/ftcache.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/cache/ftcache.c || cmake_object_order_depends_target_freetype
@@ -469,6 +526,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/cache/ftcache.c.obj: C_COMPILE
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\cache
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/cff/cff.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/cff/cff.c || cmake_object_order_depends_target_freetype
@@ -477,6 +536,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/cff/cff.c.obj: C_COMPILER__fre
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\cff
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/cid/type1cid.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/cid/type1cid.c || cmake_object_order_depends_target_freetype
@@ -485,6 +546,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/cid/type1cid.c.obj: C_COMPILER
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\cid
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/gzip/ftgzip.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/gzip/ftgzip.c || cmake_object_order_depends_target_freetype
@@ -493,6 +556,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/gzip/ftgzip.c.obj: C_COMPILER_
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\gzip
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/lzw/ftlzw.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/lzw/ftlzw.c || cmake_object_order_depends_target_freetype
@@ -501,6 +566,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/lzw/ftlzw.c.obj: C_COMPILER__f
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\lzw
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/pcf/pcf.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/pcf/pcf.c || cmake_object_order_depends_target_freetype
@@ -509,6 +576,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/pcf/pcf.c.obj: C_COMPILER__fre
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\pcf
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/pfr/pfr.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/pfr/pfr.c || cmake_object_order_depends_target_freetype
@@ -517,6 +586,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/pfr/pfr.c.obj: C_COMPILER__fre
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\pfr
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/psaux/psaux.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/psaux/psaux.c || cmake_object_order_depends_target_freetype
@@ -525,6 +596,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/psaux/psaux.c.obj: C_COMPILER_
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\psaux
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/pshinter/pshinter.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/pshinter/pshinter.c || cmake_object_order_depends_target_freetype
@@ -533,6 +606,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/pshinter/pshinter.c.obj: C_COM
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\pshinter
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/psnames/psnames.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/psnames/psnames.c || cmake_object_order_depends_target_freetype
@@ -541,6 +616,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/psnames/psnames.c.obj: C_COMPI
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\psnames
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/raster/raster.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/raster/raster.c || cmake_object_order_depends_target_freetype
@@ -549,6 +626,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/raster/raster.c.obj: C_COMPILE
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\raster
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/sdf/sdf.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/sdf/sdf.c || cmake_object_order_depends_target_freetype
@@ -557,6 +636,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/sdf/sdf.c.obj: C_COMPILER__fre
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\sdf
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/sfnt/sfnt.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/sfnt/sfnt.c || cmake_object_order_depends_target_freetype
@@ -565,6 +646,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/sfnt/sfnt.c.obj: C_COMPILER__f
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\sfnt
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/smooth/smooth.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/smooth/smooth.c || cmake_object_order_depends_target_freetype
@@ -573,6 +656,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/smooth/smooth.c.obj: C_COMPILE
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\smooth
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/svg/svg.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/svg/svg.c || cmake_object_order_depends_target_freetype
@@ -581,6 +666,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/svg/svg.c.obj: C_COMPILER__fre
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\svg
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/truetype/truetype.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/truetype/truetype.c || cmake_object_order_depends_target_freetype
@@ -589,6 +676,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/truetype/truetype.c.obj: C_COM
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\truetype
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/type1/type1.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/type1/type1.c || cmake_object_order_depends_target_freetype
@@ -597,6 +686,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/type1/type1.c.obj: C_COMPILER_
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\type1
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/type42/type42.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/type42/type42.c || cmake_object_order_depends_target_freetype
@@ -605,6 +696,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/type42/type42.c.obj: C_COMPILE
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\type42
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/winfonts/winfnt.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/winfonts/winfnt.c || cmake_object_order_depends_target_freetype
@@ -613,6 +706,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/winfonts/winfnt.c.obj: C_COMPI
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\winfonts
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/builds/windows/ftsystem.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/builds/windows/ftsystem.c || cmake_object_order_depends_target_freetype
@@ -621,6 +716,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/builds/windows/ftsystem.c.obj: C_C
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\builds\windows
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/builds/windows/ftdebug.c.obj: C_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/builds/windows/ftdebug.c || cmake_object_order_depends_target_freetype
@@ -629,6 +726,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/builds/windows/ftdebug.c.obj: C_CO
   INCLUDES = -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/vendor/freetype/include" -I"D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config"
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\builds\windows
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftver.rc.obj: RC_COMPILER__freetype_unscanned_ D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/src/base/ftver.rc || cmake_object_order_depends_target_freetype
@@ -637,6 +736,8 @@ build vendor/freetype/CMakeFiles/freetype.dir/src/base/ftver.rc.obj: RC_COMPILER
   INCLUDES = -I "D:/Programing Education/atlas - engine/build/vendor/freetype/include" -I "D:/Programing Education/atlas - engine/vendor/freetype/include" -I "D:/Programing Education/atlas - engine/build/vendor/freetype/include/freetype/config" -I C:/msys64/mingw64/include
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   OBJECT_FILE_DIR = vendor\freetype\CMakeFiles\freetype.dir\src\base
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 
@@ -651,8 +752,9 @@ build vendor/freetype/libfreetype.a: C_STATIC_LIBRARY_LINKER__freetype_ vendor/f
   OBJECT_DIR = vendor\freetype\CMakeFiles\freetype.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = vendor\freetype\CMakeFiles\freetype.dir\freetype.pdb
   TARGET_FILE = vendor\freetype\libfreetype.a
-  TARGET_PDB = freetype.a.dbg
+  TARGET_PDB = vendor\freetype\libfreetype.pdb
   TARGET_SUPPORT_DIR = vendor\freetype\CMakeFiles\freetype.dir
 
 
@@ -763,6 +865,8 @@ build vendor/glad/CMakeFiles/glad.dir/src/glad.c.obj: C_COMPILER__glad_unscanned
   INCLUDES = -I"D:/Programing Education/atlas - engine/vendor/glad/include"
   OBJECT_DIR = vendor\glad\CMakeFiles\glad.dir
   OBJECT_FILE_DIR = vendor\glad\CMakeFiles\glad.dir\src
+  TARGET_COMPILE_PDB = vendor\glad\CMakeFiles\glad.dir\glad.pdb
+  TARGET_PDB = vendor\glad\libglad.pdb
   TARGET_SUPPORT_DIR = vendor\glad\CMakeFiles\glad.dir
 
 
@@ -777,8 +881,9 @@ build vendor/glad/libglad.a: C_STATIC_LIBRARY_LINKER__glad_ vendor/glad/CMakeFil
   OBJECT_DIR = vendor\glad\CMakeFiles\glad.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = vendor\glad\CMakeFiles\glad.dir\glad.pdb
   TARGET_FILE = vendor\glad\libglad.a
-  TARGET_PDB = glad.a.dbg
+  TARGET_PDB = vendor\glad\libglad.pdb
   TARGET_SUPPORT_DIR = vendor\glad\CMakeFiles\glad.dir
 
 
@@ -937,14 +1042,14 @@ build vendor/glad/all: phony vendor/glad/libglad.a
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja D$:/Programing$ Education/atlas$ -$ engine/build/cmake_install.cmake D$:/Programing$ Education/atlas$ -$ engine/build/vendor/freetype/cmake_install.cmake D$:/Programing$ Education/atlas$ -$ engine/build/vendor/glad/cmake_install.cmake: RERUN_CMAKE | C$:/msys64/mingw64/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDependentOption.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakePackageConfigHelpers.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakePushCheckState.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeRCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/msys64/mingw64/share/cmake/Modules/CPack.cmake C$:/msys64/mingw64/share/cmake/Modules/CPackComponent.cmake C$:/msys64/mingw64/share/cmake/Modules/CheckIncludeFile.cmake C$:/msys64/mingw64/share/cmake/Modules/CheckSymbolExists.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/FindBZip2.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPNG.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageMessage.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPkgConfig.cmake C$:/msys64/mingw64/share/cmake/Modules/FindZLIB.cmake C$:/msys64/mingw64/share/cmake/Modules/GNUInstallDirs.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/msys64/mingw64/share/cmake/Modules/SelectLibraryConfigurations.cmake C$:/msys64/mingw64/share/cmake/Modules/WriteBasicConfigVersionFile.cmake C$:/msys64/mingw64/share/cmake/Templates/CPackConfig.cmake.in CMakeCache.txt CMakeFiles/4.2.1/CMakeCCompiler.cmake CMakeFiles/4.2.1/CMakeCXXCompiler.cmake CMakeFiles/4.2.1/CMakeRCCompiler.cmake CMakeFiles/4.2.1/CMakeSystem.cmake D$:/Programing$ Education/atlas$ -$ engine/CMakeLists.txt D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/CMakeLists.txt D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/builds/cmake/FindBrotliDec.cmake D$:/Programing$ Education/atlas$ -$ engine/vendor/glad/CMakeLists.txt
+build build.ninja D$:/Programing$ Education/atlas$ -$ engine/build/cmake_install.cmake D$:/Programing$ Education/atlas$ -$ engine/build/vendor/freetype/cmake_install.cmake D$:/Programing$ Education/atlas$ -$ engine/build/vendor/glad/cmake_install.cmake: RERUN_CMAKE | C$:/msys64/mingw64/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeCCompiler.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeCCompilerABI.c C$:/msys64/mingw64/share/cmake/Modules/CMakeCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCXXCompiler.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeCXXCompilerABI.cpp C$:/msys64/mingw64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCompilerIdDetection.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDependentOption.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerABI.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerId.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerSupport.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDetermineRCCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDetermineSystem.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeFindBinUtils.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeNinjaFindMake.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakePackageConfigHelpers.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakePushCheckState.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeRCCompiler.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeRCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystem.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeTestCCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeTestCXXCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeTestCompilerCommon.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeTestRCCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/CPack.cmake C$:/msys64/mingw64/share/cmake/Modules/CPackComponent.cmake C$:/msys64/mingw64/share/cmake/Modules/CheckIncludeFile.cmake C$:/msys64/mingw64/share/cmake/Modules/CheckSymbolExists.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Diab-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX-CXXImportStd.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Renesas-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/TI-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/TIClang-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/FindBZip2.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPNG.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageMessage.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPkgConfig.cmake C$:/msys64/mingw64/share/cmake/Modules/FindZLIB.cmake C$:/msys64/mingw64/share/cmake/Modules/GNUInstallDirs.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeInspectCLinker.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeInspectCXXLinker.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/FeatureTesting.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-Determine-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/msys64/mingw64/share/cmake/Modules/SelectLibraryConfigurations.cmake C$:/msys64/mingw64/share/cmake/Modules/WriteBasicConfigVersionFile.cmake C$:/msys64/mingw64/share/cmake/Templates/CPackConfig.cmake.in CMakeCache.txt CMakeFiles/4.2.1/CMakeCCompiler.cmake CMakeFiles/4.2.1/CMakeCXXCompiler.cmake CMakeFiles/4.2.1/CMakeRCCompiler.cmake CMakeFiles/4.2.1/CMakeSystem.cmake D$:/Programing$ Education/atlas$ -$ engine/CMakeLists.txt D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/CMakeLists.txt D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/builds/cmake/FindBrotliDec.cmake D$:/Programing$ Education/atlas$ -$ engine/vendor/glad/CMakeLists.txt
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/msys64/mingw64/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDependentOption.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakePackageConfigHelpers.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakePushCheckState.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeRCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/msys64/mingw64/share/cmake/Modules/CPack.cmake C$:/msys64/mingw64/share/cmake/Modules/CPackComponent.cmake C$:/msys64/mingw64/share/cmake/Modules/CheckIncludeFile.cmake C$:/msys64/mingw64/share/cmake/Modules/CheckSymbolExists.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/FindBZip2.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPNG.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageMessage.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPkgConfig.cmake C$:/msys64/mingw64/share/cmake/Modules/FindZLIB.cmake C$:/msys64/mingw64/share/cmake/Modules/GNUInstallDirs.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/msys64/mingw64/share/cmake/Modules/SelectLibraryConfigurations.cmake C$:/msys64/mingw64/share/cmake/Modules/WriteBasicConfigVersionFile.cmake C$:/msys64/mingw64/share/cmake/Templates/CPackConfig.cmake.in CMakeCache.txt CMakeFiles/4.2.1/CMakeCCompiler.cmake CMakeFiles/4.2.1/CMakeCXXCompiler.cmake CMakeFiles/4.2.1/CMakeRCCompiler.cmake CMakeFiles/4.2.1/CMakeSystem.cmake D$:/Programing$ Education/atlas$ -$ engine/CMakeLists.txt D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/CMakeLists.txt D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/builds/cmake/FindBrotliDec.cmake D$:/Programing$ Education/atlas$ -$ engine/vendor/glad/CMakeLists.txt: phony
+build C$:/msys64/mingw64/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeCCompiler.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeCCompilerABI.c C$:/msys64/mingw64/share/cmake/Modules/CMakeCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCXXCompiler.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeCXXCompilerABI.cpp C$:/msys64/mingw64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCompilerIdDetection.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDependentOption.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerABI.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerId.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerSupport.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDetermineRCCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDetermineSystem.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeFindBinUtils.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeNinjaFindMake.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakePackageConfigHelpers.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakePushCheckState.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeRCCompiler.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeRCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystem.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeTestCCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeTestCXXCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeTestCompilerCommon.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeTestRCCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/CPack.cmake C$:/msys64/mingw64/share/cmake/Modules/CPackComponent.cmake C$:/msys64/mingw64/share/cmake/Modules/CheckIncludeFile.cmake C$:/msys64/mingw64/share/cmake/Modules/CheckSymbolExists.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Diab-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX-CXXImportStd.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Renesas-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/TI-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/TIClang-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/msys64/mingw64/share/cmake/Modules/FindBZip2.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPNG.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageMessage.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPkgConfig.cmake C$:/msys64/mingw64/share/cmake/Modules/FindZLIB.cmake C$:/msys64/mingw64/share/cmake/Modules/GNUInstallDirs.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeInspectCLinker.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeInspectCXXLinker.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/FeatureTesting.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-Determine-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/msys64/mingw64/share/cmake/Modules/SelectLibraryConfigurations.cmake C$:/msys64/mingw64/share/cmake/Modules/WriteBasicConfigVersionFile.cmake C$:/msys64/mingw64/share/cmake/Templates/CPackConfig.cmake.in CMakeCache.txt CMakeFiles/4.2.1/CMakeCCompiler.cmake CMakeFiles/4.2.1/CMakeCXXCompiler.cmake CMakeFiles/4.2.1/CMakeRCCompiler.cmake CMakeFiles/4.2.1/CMakeSystem.cmake D$:/Programing$ Education/atlas$ -$ engine/CMakeLists.txt D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/CMakeLists.txt D$:/Programing$ Education/atlas$ -$ engine/vendor/freetype/builds/cmake/FindBrotliDec.cmake D$:/Programing$ Education/atlas$ -$ engine/vendor/glad/CMakeLists.txt: phony
 
 
 #############################################

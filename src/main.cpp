@@ -19,6 +19,12 @@ int main()
         PollEvent(&event);
 
         Update(deltaTime);
+        std::sort(renderData->transforms.begin(), renderData->transforms.end(),
+                  [](const Transform &a, const Transform &b)
+                  {
+                      return a.layer < b.layer;
+                  });
+
         glRender();
 
         SwapBuffersWindow();

@@ -3,10 +3,10 @@
 #include <assets.h>
 #include <gl_renderer.hpp>
 
-inline void DrawSprite(SpriteID spriteID, vec2 pos, vec2 size, vec3 color = vec3(1.0f))
+inline void DrawSprite(SpriteID spriteID, vec2 pos, vec2 size, vec3 color = vec3(1.0f), float layer = 0.0f)
 {
     Sprite sprite = getSprite(spriteID);
-    PushSprite(sprite.offset, sprite.size, pos, size, color, 0);
+    PushSprite(sprite.offset, sprite.size, pos, size, color, 0, layer);
 }
 
 inline void DrawSprite(Sprite sprite, vec2 pos, vec2 size, DrawData data)
@@ -16,15 +16,15 @@ inline void DrawSprite(Sprite sprite, vec2 pos, vec2 size, DrawData data)
     animatedOffset.x += (data.anim_x * sprite.size.x);
     
     // Pass the NEW animatedOffset, not sprite.offset
-    PushSprite(animatedOffset, sprite.size, pos, size, vec3(1.0f), data.renderOptions);
+    PushSprite(animatedOffset, sprite.size, pos, size, vec3(1.0f), data.renderOptions, data.layer);
 }
 
 inline void DrawQuad(Transform trans)
 {
-    PushSprite(trans.ioffset, trans.isize, trans.pos, trans.size, trans.color.xyz(), trans.renderOptions);
+    PushSprite(trans.ioffset, trans.isize, trans.pos, trans.size, trans.color.xyz(), trans.renderOptions, trans.layer);
 }
 
-inline void DrawUIText(const std::string &text, vec2 pos, float scale, vec3 color = vec3(1.0f))
+inline void DrawUIText(const std::string &text, vec2 pos, float scale, vec3 color = vec3(1.0f), float layer = 0.0f)
 {
     float x = pos.x;
     float y = pos.y;
@@ -58,6 +58,7 @@ inline void DrawUIText(const std::string &text, vec2 pos, float scale, vec3 colo
         trans.pos = vec2(xpos, ypos);
         trans.size = size;
         trans.color = vec4(color, 1.0f);
+        trans.layer = layer;
         renderData->uiTransforms.push_back(trans);
 
         x += (g.advance >> 6) * scaleFactor;

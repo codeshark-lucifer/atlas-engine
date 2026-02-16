@@ -72,6 +72,89 @@ void UpdateTile()
         }
 }
 
+void ResolveTileCollisions(Player &player, bool resolveX)
+{
+    Rect playerRect = {player.pos, player.size};
+
+    int minX = (int)(player.pos.x / TILESIZE) - 1;
+    int maxX = (int)((player.pos.x + player.size.x) / TILESIZE) + 1;
+    int minY = (int)(player.pos.y / TILESIZE) - 1;
+    int maxY = (int)((player.pos.y + player.size.y) / TILESIZE) + 1;
+
+    for (int y = minY; y <= maxY; y++)
+    {
+        for (int x = minX; x <= maxX; x++)
+        {
+            Tile *tile = getTile(x, y);
+            if (!tile || !tile->isVisible)
+                continue;
+
+            Rect tileRect = {vec2(x * TILESIZE, y * TILESIZE), vec2(TILESIZE)};
+
+            if (CheckCollision(playerRect, tileRect))
+            {
+                if (resolveX)
+                {
+                    if (player.vel.x > 0)
+                        player.pos.x = tileRect.pos.x - player.size.x;
+                    else if (player.vel.x < 0)
+                        player.pos.x = tileRect.pos.x + tileRect.size.x;
+
+                    player.vel.x = 0;
+                }
+                else
+                {
+                    if (player.vel.y > 0)
+                    {
+                        player.pos.y = tileRect.pos.y - player.size.y;
+                        player.vel.y = 0;
+                        player.isGrounded = true;
+                    }
+                    else if (player.vel.y < 0)
+                    {
+                        player.pos.y = tileRect.pos.y + tileRect.size.y;
+                        player.vel.y = 0;
+                    }
+                }
+
+                playerRect.pos = player.pos; // update rect
+            }
+        }
+    }
+}
+
+void MoveAndCollide(Player &player)
+{
+    player.isGrounded = false;
+
+    // Move X
+    player.pos.x += player.vel.x * FIXED_DELTATIME;
+    ResolveTileCollisions(player, true);
+
+    // Move Y
+    player.pos.y += player.vel.y * FIXED_DELTATIME;
+    ResolveTileCollisions(player, false);
+}
+
+void CheckCoinCollection(Player &player)
+{
+    Rect playerRect = {player.pos, player.size};
+
+    for (auto &coin : gameState->coins)
+    {
+        if (coin.collected)
+            continue;
+
+        Rect coinRect = {coin.pos, coin.size};
+
+        if (CheckCollision(playerRect, coinRect))
+        {
+            coin.collected = true;
+            gameState->coinCount++;
+        }
+    }
+}
+
 void InitGame()
 {
     // According to your image, the blue tileset is roughly
@@ -117,6 +200,8 @@ void InitGame()
     player.size = vec2(34.0f, 40.0f); // Celeste is 17x20, so 2x scale works well
     player.vel = vec2(0, 0);
     player.animationState = PLAYER_ANIM_IDLE;
+
+    gameState->coins.push_back({vec2(400, 220), vec2(30.0f), false});
 }
 
 void simulate()
@@ -137,32 +222,6 @@ void simulate()
     {
         ishidden = true;
         SetMouseMode(MOUSE_HIDDEN);
-    }
-
-    if (input->IsMousePressed(MOUSE_LEFT))
-    {
-        int gridX = (int)(input->mousePosScreen.x / TILESIZE);
-        int gridY = (int)(input->mousePosScreen.y / TILESIZE);
-
-        Tile *tile = getTile(gridX, gridY);
-        if (tile)
-        {
-            tile->isVisible = true;
-            UpdateTile();
-        }
-    }
-
-    if (input->IsMousePressed(MOUSE_RIGHT))
-    {
-        int gridX = (int)(input->mousePosScreen.x / TILESIZE);
-        int gridY = (int)(input->mousePosScreen.y / TILESIZE);
-
-        Tile *tile = getTile(gridX, gridY);
-        if (tile)
-        {
-            tile->isVisible = false;
-            UpdateTile();
-        }
     }
 
     float moveSpeed = 200.0f;
@@ -211,70 +270,20 @@ void simulate()
 void step()
 {
     Player &player = gameState->player;
+
     float gravity = 1200.0f;
     player.vel.y += gravity * FIXED_DELTATIME;
 
-    // Calculate the range of tiles the player is currently overlapping
-    int minX = (int)(player.pos.x / TILESIZE) - 1;
-    int maxX = (int)((player.pos.x + player.size.x) / TILESIZE) + 1;
-    int minY = (int)(player.pos.y / TILESIZE) - 1;
-    int maxY = (int)((player.pos.y + player.size.y) / TILESIZE) + 1;
-
-    // 1. Move X
-    player.pos.x += player.vel.x * FIXED_DELTATIME;
-    for (int y = minY; y <= maxY; y++)
-    {
-        for (int x = minX; x <= maxX; x++)
-        {
-            Tile *tile = getTile(x, y);
-            if (tile && tile->isVisible)
-            {
-                Rect tileRect = {vec2(x * TILESIZE, y * TILESIZE), vec2(TILESIZE)};
-                if (CheckCollision({player.pos, player.size}, tileRect))
-                {
-                    if (player.vel.x > 0)
-                        player.pos.x = tileRect.pos.x - player.size.x;
-                    else if (player.vel.x < 0)
-                        player.pos.x = tileRect.pos.x + tileRect.size.x;
-                    player.vel.x = 0;
-                }
-            }
-        }
-    }
-
-    // 2. Move Y
-    player.pos.y += player.vel.y * FIXED_DELTATIME;
-    player.isGrounded = false;
-    for (int y = minY; y <= maxY; y++)
-    {
-        for (int x = minX; x <= maxX; x++)
-        {
-            Tile *tile = getTile(x, y);
-            if (tile && tile->isVisible)
-            {
-                Rect tileRect = {vec2(x * TILESIZE, y * TILESIZE), vec2(TILESIZE)};
-                if (CheckCollision({player.pos, player.size}, tileRect))
-                {
-                    if (player.vel.y > 0)
-                    {
-                        player.pos.y = tileRect.pos.y - player.size.y;
-                        player.isGrounded = true;
-                        player.vel.y = 0;
-                    }
-                    else if (player.vel.y < 0)
-                    {
-                        player.pos.y = tileRect.pos.y + tileRect.size.y;
-                        player.vel.y = 0;
-                    }
-                }
-            }
-        }
-    }
+    MoveAndCollide(player);
+    CheckCoinCollection(player);
 }
+
 void DrawGrid();
+void DrawParticle();
 void render()
 {
     DrawGrid();
+    DrawParticle();
 
     {
         Player &player = gameState->player;
@@ -287,10 +296,17 @@ void render()
 
         DrawSprite(sprite, player.pos, player.size, {anim_x, player.renderOptions, 0.0f});
     }
+
+    for (auto &coin : gameState->coins)
+    {
+        if (!coin.collected)
+            DrawSprite(SPRITE_COIN, coin.pos, coin.size);
+    }
     vec2 mouse = input->mousePosScreen;
     DrawSprite(SPRITE_REDBALL, mouse - vec2(4.0f), vec2(8.0f));
 
-    DrawUIText("Game", vec2(0.0f), 24.0f);
+    std::string coins = "Coins: " + std::to_string(gameState->coinCount);
+    DrawUIText(coins.c_str(), vec2(0.0f), 24.0f);
 }
 
 // Update Entry
@@ -308,6 +324,7 @@ void Update(float dt)
     {
         simulate();
         step();
+        particle.Update(fixedTime);
         fixedTime -= FIXED_DELTATIME;
     }
 
@@ -341,5 +358,20 @@ void DrawGrid()
                 DrawQuad(trans);
             }
         }
+    }
+}
+
+void DrawParticle()
+{
+    for (auto &part : particle.particles)
+    {
+        Transform trans = {};
+        trans.color = part.color;
+        trans.ioffset = {0, 0};
+        trans.isize = {1, 1};
+        trans.size = vec2(8.0f);
+        trans.pos = part.position - (trans.size * 0.5f);
+        trans.renderOptions = 0;
+        DrawQuad(trans);
     }
 }

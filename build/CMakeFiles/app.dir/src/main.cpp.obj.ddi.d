@@ -473,4 +473,9 @@ CMakeFiles\app.dir\src\main.cpp.obj.ddi: \
  C:/msys64/mingw64/include/c++/15.2.0/bits/node_handle.h \
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_map.h \
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_multimap.h \
- C:/msys64/mingw64/include/c++/15.2.0/bits/erase_if.h
+ C:/msys64/mingw64/include/c++/15.2.0/bits/erase_if.h \
+ D:/Programing\ Education/atlas\ -\ engine/include/systems/particle.h \
+ C:/msys64/mingw64/include/c++/15.2.0/algorithm \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/ranges_algo.h \
+ C:/msys64/mingw64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
+ C:/msys64/mingw64/include/c++/15.2.0/pstl/execution_defs.h

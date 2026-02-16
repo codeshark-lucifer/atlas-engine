@@ -11,6 +11,8 @@ enum SpriteID
     SPRITE_CELESTE_RUN,
     SPRITE_CELESTE_JUMP,
 
+    SPRITE_COIN,
+
     SPRITE_COUNT
 };
 
@@ -36,6 +38,13 @@ inline Sprite getSprite(SpriteID spriteID)
     }
 
     case SPRITE_DICE:
+    {
+        sprite.offset = {16, 0};
+        sprite.size = {16, 16};
+        break;
+    }
+
+    case SPRITE_COIN:
     {
         sprite.offset = {16, 0};
         sprite.size = {16, 16};

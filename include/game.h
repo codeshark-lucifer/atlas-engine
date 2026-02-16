@@ -2,6 +2,7 @@
 #include <assets.h>
 #include <interface.h>
 #include <platform/win32.h>
+#include <systems/particle.h>
 
 constexpr float FIXED_DELTATIME = 1.0f / 60.0f;
 
@@ -39,6 +40,13 @@ struct Tile
     bool isVisible;
 };
 
+struct Coin
+{
+    vec2 pos;
+    vec2 size;
+    bool collected;
+};
+
 struct GameState
 {
     Player player;
@@ -46,6 +54,9 @@ struct GameState
     Array<IVec2> tileCoords;
     Tile worldGrid[WORLD_GRID.x][WORLD_GRID.y];
     bool initialized{false};
+
+    Array<Coin> coins;
+    int coinCount = 0;
 
     GameState()
     {
@@ -58,6 +69,7 @@ struct GameState
 };
 
 extern GameState *gameState;
+static ParticleSystem particle;
 
 void InitGame();
 void simulate();

@@ -7,20 +7,21 @@ constexpr int RENDERING_OPTION_FONT = BIT(2);
 
 struct DrawData
 {
-  int anim_x;
-  int renderOptions;
-  float layer = 0.0f;
+    int anim_x;
+    int renderOptions;
+    float layer = 0.0f;
 };
 
 struct alignas(16) Transform
 {
-    ivec2 ioffset;        // 8 bytes
-    ivec2 isize;          // 8 bytes
-    vec2 pos;             // 8 bytes
-    vec2 size;            // 8 bytes
-    vec4 color;           // 16 bytes (Starts at byte 32)
-    int renderOptions;    // 4 bytes  (Starts at byte 48)
-    int _padding[3];      // 12 bytes (Ensures the whole struct is 64 bytes)
+    ivec2 ioffset;     // 8 bytes
+    ivec2 isize;       // 8 bytes
+    vec2 pos;          // 8 bytes
+    vec2 size;         // 8 bytes
+    vec4 color;        // 16 bytes (Starts at byte 32)
+    int renderOptions; // 4 bytes  (Starts at byte 48)
+    float layer;       // 
+    int _padding[2];   // was 3, now 2
 };
 
 struct Camera2D

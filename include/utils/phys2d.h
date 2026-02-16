@@ -16,3 +16,9 @@ inline bool CheckCollision(Rect a, Rect b) {
             a.pos.y < b.pos.y + b.size.y &&
             a.pos.y + a.size.y > b.pos.y);
 }
+
+inline Rect MakeRect(Vec2 pos, Vec2 size)
+{
+    Rect rect = { pos, size };
+    return rect;
+}
