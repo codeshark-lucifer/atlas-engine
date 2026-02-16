@@ -172,11 +172,12 @@ bool glInit(BumpAllocator *persistentStorage)
 
 void glRender()
 {
-    mat4 projection = renderData->camera.matrix();
-    glViewport(0, 0, input->screenSize.x, input->screenSize.y);
+    Camera2D &camera = renderData->camera;
+    mat4 projection = camera.matrix();
     glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-
+    glViewport(0, 0, (int)camera.dimensions.x, (int)camera.dimensions.y);
+    
     gl.shader->Use();
     gl.shader->SetUniform("projection", projection);
     glBindVertexArray(gl.vao);
