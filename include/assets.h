@@ -45,23 +45,23 @@ inline Sprite getSprite(SpriteID spriteID)
     case SPRITE_CELESTE:
     {
       sprite.offset = {128, 0};
-      sprite.size = {32, 32};
-      sprite.frameCount = 6;
+      sprite.size = {17, 20};
+      sprite.frameCount = 4;
       break;
     }
 
     case SPRITE_CELESTE_RUN:
     {
-      sprite.offset = {128, 32};
-      sprite.size = {32, 32};
-      sprite.frameCount = 6;
+      sprite.offset = {128, 20};
+      sprite.size = {17, 20};
+      sprite.frameCount = 5;
       break;
     }
 
     case SPRITE_CELESTE_JUMP:
     {
-      sprite.offset = {128, 48};
-      sprite.size = {32, 32};
+      sprite.offset = {128, 40};
+      sprite.size = {17, 20};
       sprite.frameCount = 4;
       break;
     }
