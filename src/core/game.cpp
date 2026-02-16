@@ -290,7 +290,7 @@ void render()
     vec2 mouse = input->mousePosScreen;
     DrawSprite(SPRITE_REDBALL, mouse - vec2(4.0f), vec2(8.0f));
 
-    DrawUIText("Game", vec2(10.0f), 24.0f);
+    DrawUIText("Game", vec2(0.0f), 24.0f);
 }
 
 // Update Entry

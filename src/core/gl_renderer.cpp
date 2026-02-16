@@ -41,6 +41,13 @@ bool LoadFont(const char *path, int pixelSize)
 
     FT_Set_Pixel_Sizes(face, 0, pixelSize);
 
+    // store ascender (in pixels) for baseline calculations
+    font.pixelSize = pixelSize;
+    if (face->size)
+        font.ascender = (face->size->metrics.ascender >> 6);
+    else
+        font.ascender = pixelSize; // fallback
+
     const int firstChar = 32;
     const int lastChar = 126;
 
@@ -59,6 +66,7 @@ bool LoadFont(const char *path, int pixelSize)
 
     font.atlasWidth = atlasWidth;
     font.atlasHeight = atlasHeight;
+    font.pixelSize = pixelSize;
 
     std::vector<unsigned char> atlas(atlasWidth * atlasHeight);
 

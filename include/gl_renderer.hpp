@@ -25,6 +25,8 @@ struct Font
     u32 texture;
     int atlasWidth;
     int atlasHeight;
+    int pixelSize;
+    int ascender; // in pixels (face->size->metrics.ascender >> 6)
 };
 
 extern GLContext gl;
